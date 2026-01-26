@@ -28,6 +28,7 @@
     <h1>Book Your Consultation 🔮</h1>
     <p class="tagline">Guidance from Acharya Pandit Sanjay Ji</p>
   </header>
+<a id="whatsappBtn" class="btn" target="_blank">Chat on WhatsApp</a>
 
   <!-- Consultation Form -->
   <section class="consult-form">
@@ -87,4 +88,22 @@
     </p>
   </footer>
 </body>
+  <script>
+document.getElementById("whatsappBtn").onclick = function () {
+  const name = document.getElementById("name").value;
+  const service = document.getElementById("service").value;
+  const phone = document.getElementById("phone").value;
+
+  const msg = `🙏 Namaste Pandit Ji,%0A
+Name: ${name}%0A
+Phone: ${phone}%0A
+Service: ${service}%0A
+Please guide me.`;
+
+  window.open(
+    "https://wa.me/919929806534?text=" + msg,
+    "_blank"
+  );
+};
+</script>
 </html>
