@@ -139,3 +139,58 @@ footer {
   color: #FFD700;
   margin-bottom: 15px;
 }
+.contact-info, .contact-form, .map {
+  background: rgba(0,0,0,0.7);
+  padding: 30px 20px;
+  margin: 30px auto;
+  max-width: 800px;
+  border-radius: 12px;
+}
+
+.contact-info h2, .contact-form h2, .map h2 {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 26px;
+  color: #FFD700;
+  margin-bottom: 20px;
+}
+
+.contact-info p {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form label {
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+
+.contact-form input, .contact-form textarea {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  margin-bottom: 15px;
+}
+
+.contact-form .cta {
+  padding: 12px;
+  background: #800000;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.contact-form .cta:hover {
+  background: #FFD700;
+  color: #000;
+}
+
+.map iframe {
+  border-radius: 12px;
+}
