@@ -10,6 +10,7 @@
 <body>
   <!-- Navbar -->
   <nav class="navbar">
+    <button onclick="toggleLang()" class="lang-btn">हिंदी / ENG</button>
     <div class="logo"> <img src="images/logo.png" alt="Astro Sanjog Logo" width="50">
       <img src="images/logo.png" alt="Astro Sanjog Logo" width="50">
       <span>Astro Sanjog</span>
@@ -129,3 +130,13 @@
     </div>
   </div>
 </section>
+<script>
+let hindi = false;
+function toggleLang() {
+  hindi = !hindi;
+
+  document.querySelector("h1").innerText = hindi
+    ? "एस्ट्रो संजोग में आपका स्वागत है 🔮"
+    : "Welcome to Astro Sanjog 🔮";
+}
+</script>
