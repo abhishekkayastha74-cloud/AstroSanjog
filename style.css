@@ -194,3 +194,121 @@ footer {
 .map iframe {
   border-radius: 12px;
 }
+.consult-form {
+  background: rgba(0,0,0,0.7);
+  padding: 40px 20px;
+  margin: 40px auto;
+  max-width: 600px;
+  border-radius: 12px;
+  text-align: left;
+}
+
+.consult-form h2 {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 26px;
+  color: #FFD700;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.consult-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.consult-form label {
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+
+.consult-form input,
+.consult-form select {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  margin-bottom: 15px;
+}
+
+.consult-form .cta {
+  padding: 12px;
+  background: #800000;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.consult-form .cta:hover {
+  background: #FFD700;
+  color: #000;
+}
+
+.consult-form .btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #FFD700;
+  color: #000;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.consult-form .btn:hover {
+  background: #800000;
+  color: #fff;
+}
+
+/* Testimonials */
+.testimonials {
+  background: rgba(0,0,0,0.7);
+  padding: 40px 20px;
+  margin: 40px auto;
+  max-width: 900px;
+  border-radius: 12px;
+}
+
+.testimonials h2 {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 28px;
+  color: #FFD700;
+  margin-bottom: 30px;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.testimonial-card {
+  background: rgba(255,255,255,0.1);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.testimonial-card h4 {
+  font-size: 14px;
+  color: #FFD700;
+}
+
+.testimonial-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px gold;
+}
+
+@media (max-width: 768px) {
+  .testimonial-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
