@@ -388,3 +388,16 @@ footer {
     flex-direction: column;
   }
 }
+.card strong {
+  color: #FFD700;
+  font-size: 20px;
+}
+
+.btn {
+  background: #FFD700;
+  color: #000;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
