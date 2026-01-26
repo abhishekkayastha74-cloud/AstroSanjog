@@ -3,140 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <title>Astro Sanjog | Acharya Pandit Sanjay Ji</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <button onclick="toggleLang()" class="lang-btn">हिंदी / ENG</button>
-    <div class="logo"> <img src="images/logo.png" alt="Astro Sanjog Logo" width="50">
-      <img src="images/logo.png" alt="Astro Sanjog Logo" width="50">
-      <span>Astro Sanjog</span>
-    </div>
-    <ul class="nav-links">
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="consult.html">Consultation</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
+
+<!-- ===== NAVBAR ===== -->
+<header class="navbar">
+  <div class="logo">
+    <img src="./images/logo.png" alt="Astro Sanjog Logo">
+    <span>ASTRO SANJOG</span>
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="#consultation">Consultation</a>
+    <a href="contact.html">Contact</a>
   </nav>
-
- <header class="hero hero-flex">
-  <div class="hero-text">
-    <h1>Welcome to Astro Sanjog 🔮</h1>
-    <p>Guidance through Vedic Astrology by Acharya Pandit Sanjay Ji</p>
-    <button onclick="window.location.href='consult.html'">
-      Book Consultation
-    </button>
-  </div>
-
-  <div class="hero-img">
-    <img src="images/surya-dev.jpg" alt="Acharya Pandit Sanjay Ji">
-  </div>
 </header>
 
+<!-- ===== HERO SECTION ===== -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>WELCOME TO ASTRO SANJOG 🔮</h1>
+    <p>Guidance through Vedic Astrology by Acharya Pandit Sanjay Ji</p>
+    <a href="#consultation" class="btn">Book Consultation</a>
+  </div>
+  <div class="hero-img">
+    <img src="./images/surya-dev.jpg" alt="Acharya Pandit Sanjay Ji">
+  </div>
+</section>
 
-  <!-- Services -->
-  <section class="services">
-  <h2>Consultation Packages</h2>
+<!-- ===== CONSULTATION PACKAGES ===== -->
+<section id="consultation" class="packages">
+  <h2>CONSULTATION PACKAGES</h2>
 
-  <div class="service-grid">
-
+  <div class="cards">
     <div class="card">
-      <img src="images/chart.svg">
+      <img src="./images/chart.svg" alt="Kundli">
       <h3>Kundli Analysis</h3>
       <p>Complete birth chart with remedies</p>
-      <strong>₹1100</strong><br><br>
-      <a href="consult.html" class="btn">Book Now</a>
+      <span>₹1100</span>
+      <button>Book Now</button>
     </div>
 
     <div class="card">
-      <img src="images/palm.svg">
+      <img src="./images/palm.svg" alt="Palm Reading">
       <h3>Palm Reading</h3>
       <p>Life, career & marriage insights</p>
-      <strong>₹1500</strong><br><br>
-      <a href="consult.html" class="btn">Book Now</a>
+      <span>₹1500</span>
+      <button>Book Now</button>
     </div>
 
     <div class="card">
-      <img src="images/remedy.svg">
+      <img src="./images/remedy.svg" alt="Remedies">
       <h3>Marriage Solutions</h3>
       <p>Delay, dosha & relationship issues</p>
-      <strong>₹2100</strong><br><br>
-      <a href="consult.html" class="btn">Book Now</a>
+      <span>₹2100</span>
+      <button>Book Now</button>
     </div>
-
   </div>
 </section>
 
-  <section class="services">
-    <h2>Our Services</h2>
-    <div class="service-grid">
-      <div class="card">
-        <img src="images/palm.svg" alt="Palm Reading">
-        <h3>Palm Reading</h3>
-        <p>Discover your destiny through hand lines.</p>
-      </div>
-      <div class="card">
-        <img src="images/chart.svg" alt="Birth Chart">
-        <h3>Birth Chart Analysis</h3>
-        <p>Understand planetary influences on your life.</p>
-      </div>
-      <div class="card">
-        <img src="images/remedy.svg" alt="Remedies">
-        <h3>Remedies</h3>
-        <p>Effective solutions for health, career, and relationships.</p>
-      </div>
-    </div>
-  </section>
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <p>© 2026 Astro Sanjog | Acharya Pandit Sanjay Ji</p>
+  <p>Follow us: Instagram | YouTube</p>
+</footer>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2026 Astro Sanjog | Acharya Pandit Sanjay Ji</p>
-    <p>Follow us:
-      <a href="https://instagram.com/acharyapt.sanjayji" target="_blank">Instagram</a> |
-      <a href="https://youtube.com/@saraljyotish4" target="_blank">YouTube</a>
-    </p>
-  </footer>
 </body>
-  <h2>About Acharya Pandit Sanjay Ji</h2>
-  <img src="images/surya-dev.jpeg" alt="Acharya Pandit Sanjay Ji" class="profile-img">
-  <p>
-    Acharya Pandit Sanjay Ji is a renowned astrologer with decades of expertise in 
-    Vedic astrology, palmistry, and remedies. He has guided thousands of lives 
-    across health, career, marriage, and business challenges.
-  </p>
-</section>
-<!-- Services Section -->
-<section class="services">
-  <h2>Our Services</h2>
-  <div class="service-grid">
-    <div class="card">
-      <img src="images/palm.svg" alt="Palm Reading">
-      <h3>Palm Reading</h3>
-      <p>Discover your destiny through hand lines.</p>
-    </div>
-    <div class="card">
-      <img src="images/chart.svg" alt="Birth Chart">
-      <h3>Birth Chart Analysis</h3>
-      <p>Understand planetary influences on your life.</p>
-    </div>
-    <div class="card">
-      <img src="images/remedy.svg" alt="Remedies">
-      <h3>Remedies</h3>
-      <p>Effective solutions for health, career, and relationships.</p>
-    </div>
-  </div>
-</section>
-<script>
-let hindi = false;
-function toggleLang() {
-  hindi = !hindi;
-
-  document.querySelector("h1").innerText = hindi
-    ? "एस्ट्रो संजोग में आपका स्वागत है 🔮"
-    : "Welcome to Astro Sanjog 🔮";
-}
-</script>
+</html>
