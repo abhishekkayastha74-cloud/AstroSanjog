@@ -312,3 +312,8 @@ footer {
     grid-template-columns: repeat(1, 1fr);
   }
 }
+.hero {
+  background: url('images/hero-bg.jpg') center/cover no-repeat;
+  padding: 80px 20px;
+  color: #FFD700;
+}
