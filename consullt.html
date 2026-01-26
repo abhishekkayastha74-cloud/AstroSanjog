@@ -3,107 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <title>Consultation | Astro Sanjog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">
-      <img src="images/logo.png" alt="Astro Sanjog Logo" width="50">
-      <span>Astro Sanjog</span>
-    </div>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="consult.html" class="active">Consultation</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
+
+<header class="navbar">
+  <div class="logo">
+    <img src="./images/logo.png">
+    <span>ASTRO SANJOG</span>
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="consult.html">Consult</a>
+    <a href="contact.html">Contact</a>
   </nav>
+</header>
 
-  <!-- Hero Section -->
-  <header class="hero">
-    <h1>Book Your Consultation 🔮</h1>
-    <p class="tagline">Guidance from Acharya Pandit Sanjay Ji</p>
-  </header>
-<a id="whatsappBtn" class="btn" target="_blank">Chat on WhatsApp</a>
+<section class="packages">
+  <h2>BOOK CONSULTATION</h2>
 
-  <!-- Consultation Form -->
-  <section class="consult-form">
-    <h2>Consultation Request Form</h2>
-    <form action="#" method="post">
-      <label for="name">Full Name</label>
-      <input type="text" id="name" name="name" required>
+  <form id="consultForm">
+    <input type="text" id="name" placeholder="Your Name" required><br><br>
+    <input type="text" id="phone" placeholder="Phone Number" required><br><br>
 
-      <label for="email">Email Address</label>
-      <input type="email" id="email" name="email" required>
+    <select id="service">
+      <option>Kundli Analysis</option>
+      <option>Palm Reading</option>
+      <option>Marriage Solution</option>
+      <option>Business Astrology</option>
+    </select><br><br>
 
-      <label for="phone">Phone Number</label>
-      <input type="tel" id="phone" name="phone" required>
+    <button type="button" onclick="sendWhatsApp()">Send on WhatsApp</button>
+  </form>
+</section>
 
-      <label for="service">Select Service</label>
-      <select id="service" name="service" required>
-        <option value="palm">Palm Reading</option>
-        <option value="birthchart">Birth Chart Analysis</option>
-        <option value="remedies">Remedies</option>
-        <option value="general">General Consultation</option>
-      </select>
+<footer class="footer">
+  <p>© 2026 Astro Sanjog</p>
+</footer>
 
-      <label for="date">Preferred Date</label>
-      <input type="date" id="date" name="date" required>
+<script>
+function sendWhatsApp(){
+  let name = document.getElementById("name").value;
+  let phone = document.getElementById("phone").value;
+  let service = document.getElementById("service").value;
 
-      <button type="submit" class="cta">Submit Request</button>
-    </form>
-    <p>Or connect instantly via WhatsApp:</p>
-    <a href="https://wa.me/919929806534" class="btn">Chat on WhatsApp</a>
-  </section>
+  let msg = `Namaste Pandit Ji,%0AName: ${name}%0APhone: ${phone}%0AService: ${service}`;
 
-  <!-- Testimonials Section -->
-  <section class="testimonials">
-    <h2>What Our Clients Say</h2>
-    <div class="testimonial-grid">
-      <div class="testimonial-card">
-        <p>"Acharya Pandit Sanjay Ji guided me through my career challenges. His remedies truly worked!"</p>
-        <h4>- Ramesh, Jaipur</h4>
-      </div>
-      <div class="testimonial-card">
-        <p>"The birth chart analysis was so accurate. I found clarity in my personal life."</p>
-        <h4>- Neha, Delhi</h4>
-      </div>
-      <div class="testimonial-card">
-        <p>"Palm reading session gave me confidence and direction. Highly recommend Astro Sanjog."</p>
-        <h4>- Arjun, Mumbai</h4>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>© 2026 Astro Sanjog | Acharya Pandit Sanjay Ji</p>
-    <p>Follow us:
-      <a href="https://instagram.com/acharyapt.sanjayji" target="_blank">Instagram</a> |
-      <a href="https://youtube.com/@saraljyotish4" target="_blank">YouTube</a>
-    </p>
-  </footer>
-</body>
-  <script>
-document.getElementById("whatsappBtn").onclick = function () {
-  const name = document.getElementById("name").value;
-  const service = document.getElementById("service").value;
-  const phone = document.getElementById("phone").value;
-
-  const msg = `🙏 Namaste Pandit Ji,%0A
-Name: ${name}%0A
-Phone: ${phone}%0A
-Service: ${service}%0A
-Please guide me.`;
-
-  window.open(
-    "https://wa.me/919929806534?text=" + msg,
-    "_blank"
-  );
-};
+  window.open("https://wa.me/919929806534?text="+msg, "_blank");
+}
 </script>
+
+</body>
 </html>
