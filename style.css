@@ -11,7 +11,7 @@ body{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:10px 40px;
+  padding:12px 40px;
 }
 .logo{
   display:flex;
@@ -21,7 +21,7 @@ body{
   font-weight:bold;
 }
 .logo img{
-  width:40px;
+  width:42px;
 }
 .navbar a{
   color:gold;
@@ -31,12 +31,12 @@ body{
 
 /* HERO */
 .hero{
+  min-height:90vh;
   background:
     linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),
     url("./images/hero-bg.jpg");
   background-size:cover;
   background-position:center;
-  min-height:90vh;
   display:flex;
   align-items:center;
   justify-content:space-around;
@@ -44,15 +44,15 @@ body{
 }
 .hero-content h1{
   color:gold;
-  font-size:48px;
+  font-size:46px;
 }
 .hero-content p{
-  max-width:400px;
+  max-width:420px;
 }
 .btn{
   display:inline-block;
   margin-top:20px;
-  padding:12px 30px;
+  padding:12px 28px;
   background:gold;
   color:black;
   border-radius:30px;
@@ -96,16 +96,9 @@ body{
 }
 .card span{
   display:block;
-  margin:10px 0;
+  margin-top:10px;
   color:gold;
   font-size:20px;
-}
-.card button{
-  padding:10px 20px;
-  background:gold;
-  border:none;
-  border-radius:20px;
-  cursor:pointer;
 }
 
 /* FOOTER */
@@ -113,12 +106,4 @@ body{
   background:#7a0000;
   text-align:center;
   padding:20px;
-  margin-top:50px;
-}
-.hero-img-about{
-  width:220px;
-  border-radius:50%;
-  border:3px solid gold;
-  margin:20px auto;
-  display:block;
 }
