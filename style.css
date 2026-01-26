@@ -407,3 +407,10 @@ footer {
   border: 3px solid gold;
   margin-bottom: 20px;
 }
+.lang-btn {
+  background: transparent;
+  color: gold;
+  border: 1px solid gold;
+  padding: 6px 10px;
+  cursor: pointer;
+}
