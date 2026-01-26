@@ -414,3 +414,10 @@ footer {
   padding: 6px 10px;
   cursor: pointer;
 }
+.pandit-img{
+  width: 250px;
+  border-radius: 15px;
+  border: 2px solid gold;
+  display: block;
+  margin: 20px auto;
+}
