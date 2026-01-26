@@ -115,3 +115,10 @@ body{
   padding:20px;
   margin-top:50px;
 }
+.hero-img-about{
+  width:220px;
+  border-radius:50%;
+  border:3px solid gold;
+  margin:20px auto;
+  display:block;
+}
