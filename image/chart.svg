@@ -1,3 +1,22 @@
-<div id="kundli-container">
-  <object id="kundliChart" type="image/svg+xml" data="chart.svg"></object>
-</div>
+<svg width="400" height="400" viewBox="0 0 400 400"
+xmlns="http://www.w3.org/2000/svg">
+
+<rect x="50" y="50" width="300" height="300"
+fill="none" stroke="gold" stroke-width="2"/>
+
+<line x1="200" y1="50" x2="200" y2="350" stroke="gold"/>
+<line x1="50" y1="200" x2="350" y2="200" stroke="gold"/>
+
+<text id="h1" x="120" y="120" fill="white">1</text>
+<text id="h2" x="200" y="120" fill="white">2</text>
+<text id="h3" x="280" y="120" fill="white">3</text>
+
+<text id="h4" x="120" y="200" fill="white">4</text>
+<text id="h5" x="200" y="200" fill="white">5</text>
+<text id="h6" x="280" y="200" fill="white">6</text>
+
+<text id="h7" x="120" y="280" fill="white">7</text>
+<text id="h8" x="200" y="280" fill="white">8</text>
+<text id="h9" x="280" y="280" fill="white">9</text>
+
+</svg>
