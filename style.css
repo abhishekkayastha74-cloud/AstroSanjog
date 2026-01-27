@@ -1,11 +1,17 @@
-body{
-  margin:0;
-  font-family: Arial, sans-serif;
-  background:#0b0b0b;
-  color:#fff;
+/* ================= GLOBAL ================= */
+*{
+  box-sizing:border-box;
 }
 
-/* NAVBAR */
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#0b0b1a;
+  color:#fff;
+  text-align:center;
+}
+
+/* ================= NAVBAR ================= */
 .navbar{
   background:#7a0000;
   display:flex;
@@ -13,23 +19,32 @@ body{
   align-items:center;
   padding:12px 40px;
 }
+
 .logo{
   display:flex;
   align-items:center;
   gap:10px;
   color:gold;
   font-weight:bold;
+  font-size:18px;
 }
+
 .logo img{
   width:42px;
 }
-.navbar a{
+
+.navbar nav a{
   color:gold;
   margin-left:20px;
   text-decoration:none;
+  font-weight:500;
 }
 
-/* HERO */
+.navbar nav a:hover{
+  text-decoration:underline;
+}
+
+/* ================= HERO ================= */
 .hero{
   min-height:90vh;
   background:
@@ -41,14 +56,19 @@ body{
   align-items:center;
   justify-content:space-around;
   padding:40px;
+  flex-wrap:wrap;
 }
+
 .hero-content h1{
   color:gold;
   font-size:46px;
 }
+
 .hero-content p{
   max-width:420px;
+  line-height:1.6;
 }
+
 .btn{
   display:inline-block;
   margin-top:20px;
@@ -59,41 +79,58 @@ body{
   text-decoration:none;
   font-weight:bold;
 }
+
+.btn:hover{
+  background:#ffd700;
+}
+
 .hero-img img{
   width:280px;
   border-radius:50%;
   border:3px solid gold;
   box-shadow:0 0 25px gold;
+  margin-top:20px;
 }
 
-/* PACKAGES */
+/* ================= PACKAGES ================= */
 .packages{
   padding:60px 40px;
-  text-align:center;
 }
+
 .packages h2{
   color:gold;
   margin-bottom:40px;
 }
+
 .cards{
   display:flex;
   justify-content:center;
   gap:25px;
   flex-wrap:wrap;
 }
+
 .card{
-  background:#222;
+  background:#1f1f1f;
   width:260px;
   padding:25px;
   border-radius:15px;
+  transition:transform 0.3s, box-shadow 0.3s;
 }
+
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 0 20px rgba(255,215,0,0.4);
+}
+
 .card img{
   width:60px;
   margin-bottom:15px;
 }
+
 .card h3{
   color:gold;
 }
+
 .card span{
   display:block;
   margin-top:10px;
@@ -101,42 +138,92 @@ body{
   font-size:20px;
 }
 
-/* FOOTER */
+/* ================= KUNDLI GENERATOR ================= */
+.kundli-section{
+  padding:60px 20px;
+  background:#050512;
+}
+
+.kundli-section h2{
+  color:gold;
+  margin-bottom:20px;
+}
+
+.form-box{
+  margin:20px auto;
+}
+
+.form-box input,
+.form-box button{
+  padding:10px;
+  margin:5px;
+  border-radius:6px;
+  border:none;
+}
+
+.form-box input{
+  width:200px;
+}
+
+.form-box button{
+  background:gold;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.form-box button:hover{
+  background:#ffd700;
+}
+
+.kundli-box{
+  width:420px;
+  margin:25px auto;
+  border:2px solid gold;
+  padding:10px;
+  background:#000;
+}
+
+.actions{
+  margin-top:15px;
+}
+
+.actions button{
+  margin:5px;
+  padding:10px 18px;
+  border-radius:6px;
+  border:none;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.actions .wa{
+  background:#25D366;
+  color:#000;
+}
+
+/* ================= FOOTER ================= */
 .footer{
   background:#7a0000;
-  text-align:center;
   padding:20px;
-}
-body {
-  font-family: Arial;
-  background: #0b0b1a;
-  color: #fff;
-  text-align: center;
+  margin-top:40px;
 }
 
-h1 {
-  color: gold;
-}
+/* ================= RESPONSIVE ================= */
+@media(max-width:768px){
+  .hero{
+    flex-direction:column;
+    text-align:center;
+  }
 
-.form-box {
-  margin: 20px auto;
-}
+  .hero-content h1{
+    font-size:34px;
+  }
 
-input, button {
-  padding: 10px;
-  margin: 5px;
-  border-radius: 6px;
-  border: none;
-}
+  .kundli-box{
+    width:95%;
+  }
 
-button {
-  background: gold;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.kundli-box {
-  width: 400px;
-  margin: auto;
-  border: 2px solid gold;
+  .form-box input{
+    width:90%;
+  }
 }
