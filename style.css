@@ -1,7 +1,4 @@
-/* ================= GLOBAL ================= */
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
 body{
   margin:0;
@@ -11,7 +8,7 @@ body{
   text-align:center;
 }
 
-/* ================= NAVBAR ================= */
+/* NAVBAR */
 .navbar{
   background:#7a0000;
   display:flex;
@@ -19,392 +16,106 @@ body{
   align-items:center;
   padding:12px 40px;
 }
-
 .logo{
   display:flex;
   align-items:center;
   gap:10px;
   color:gold;
   font-weight:bold;
-  font-size:18px;
 }
-
-.logo img{
-  width:42px;
-}
-
-.navbar nav a{
+.logo img{width:42px}
+.navbar a{
   color:gold;
   margin-left:20px;
   text-decoration:none;
-  font-weight:500;
 }
 
-.navbar nav a:hover{
-  text-decoration:underline;
-}
-
-/* ================= HERO ================= */
+/* HERO */
 .hero{
   min-height:90vh;
-  background:
-    linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),
-    url("./images/hero-bg.jpg");
+  background:linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
+  url("./images/hero-bg.jpg");
   background-size:cover;
-  background-position:center;
   display:flex;
   align-items:center;
   justify-content:space-around;
   padding:40px;
   flex-wrap:wrap;
 }
-
-.hero-content h1{
-  color:gold;
-  font-size:46px;
-}
-
-.hero-content p{
-  max-width:420px;
-  line-height:1.6;
-}
-
+.hero-content h1{color:gold;font-size:46px}
 .btn{
-  display:inline-block;
-  margin-top:20px;
   padding:12px 28px;
   background:gold;
-  color:black;
+  color:#000;
   border-radius:30px;
   text-decoration:none;
   font-weight:bold;
 }
-
-.btn:hover{
-  background:#ffd700;
-}
-
 .hero-img img{
   width:280px;
   border-radius:50%;
   border:3px solid gold;
   box-shadow:0 0 25px gold;
-  margin-top:20px;
 }
 
-/* ================= PACKAGES ================= */
-.packages{
-  padding:60px 40px;
-}
-
-.packages h2{
-  color:gold;
-  margin-bottom:40px;
-}
-
+/* SERVICES */
+.packages{padding:60px 40px}
+.packages h2{color:gold}
 .cards{
   display:flex;
-  justify-content:center;
   gap:25px;
+  justify-content:center;
   flex-wrap:wrap;
 }
-
 .card{
   background:#1f1f1f;
   width:260px;
   padding:25px;
   border-radius:15px;
-  transition:transform 0.3s, box-shadow 0.3s;
+  cursor:pointer;
 }
+.card img{width:60px}
+.card h3{color:gold}
 
-.card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 0 20px rgba(255,215,0,0.4);
-}
-
-.card img{
-  width:60px;
-  margin-bottom:15px;
-}
-
-.card h3{
-  color:gold;
-}
-
-.card span{
-  display:block;
-  margin-top:10px;
-  color:gold;
-  font-size:20px;
-}
-
-/* ================= KUNDLI GENERATOR ================= */
-.kundli-section{
-  padding:60px 20px;
-  background:#050512;
-}
-
-.kundli-section h2{
-  color:gold;
-  margin-bottom:20px;
-}
-
-.form-box{
-  margin:20px auto;
-}
-
-.form-box input,
-.form-box button{
+/* KUNDLI */
+.kundli-section{padding:60px 20px;background:#050512}
+.form-box input,button{
   padding:10px;
   margin:5px;
   border-radius:6px;
   border:none;
 }
-
-.form-box input{
-  width:200px;
-}
-
-.form-box button{
-  background:gold;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-.form-box button:hover{
-  background:#ffd700;
-}
-
+button{background:gold;font-weight:bold}
 .kundli-box{
   width:420px;
-  margin:25px auto;
+  margin:auto;
   border:2px solid gold;
   padding:10px;
-  background:#000;
 }
 
-.actions{
-  margin-top:15px;
-}
-
-.actions button{
-  margin:5px;
-  padding:10px 18px;
-  border-radius:6px;
-  border:none;
-  cursor:pointer;
-  font-weight:bold;
-}
-
-.actions .wa{
-  background:#25D366;
-  color:#000;
-}
-.seo-text{
-  font-size:12px;
-  color:#777;
-  padding:20px;
-}
-
-/* ================= FOOTER ================= */
+/* FOOTER */
 .footer{
   background:#7a0000;
   padding:20px;
   margin-top:40px;
 }
 
-/* ================= RESPONSIVE ================= */
-@media(max-width:768px){
-  .hero{
-    flex-direction:column;
-    text-align:center;
-  }
+.seo-text{font-size:12px;color:#777}
 
-  .hero-content h1{
-    font-size:34px;
-  }
-
-  .kundli-box{
-    width:95%;
-  }
-
-  .form-box input{
-    width:90%;
-  }
-}
-/* ================= ABOUT NEXT LEVEL ================= */
-.about-hero{
-  padding:80px 20px;
-  background:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),
-  url("./images/hero-bg.jpg");
-  background-size:cover;
-}
-
-.about-hero h1{color:gold;font-size:42px}
-.about-hero p{max-width:600px;margin:auto}
-
-.about-section{padding:60px 20px}
-
-.about-card{
-  max-width:900px;
-  margin:auto;
-  display:flex;
-  gap:30px;
-  background:#1a1a1a;
-  padding:30px;
-  border-radius:20px;
-  box-shadow:0 0 30px rgba(255,215,0,0.25);
-  flex-wrap:wrap;
-  align-items:center;
-}
-
-.about-card img{
-  width:260px;
-  border-radius:20px;
-  border:3px solid gold;
-}
-
-.stats-section{
-  display:flex;
-  justify-content:center;
-  gap:40px;
-  padding:50px 20px;
-  background:#050512;
-}
-
-.stat h3{color:gold;font-size:36px}
-.stat p{color:#ccc}
-
-.why-section{padding:60px 20px}
-.why-section h2{color:gold;margin-bottom:30px}
-
-.why-cards{
-  display:flex;
-  gap:20px;
-  justify-content:center;
-  flex-wrap:wrap;
-}
-
-.why-card{
-  background:#1f1f1f;
-  padding:20px 25px;
-  border-radius:12px;
-  border:1px solid gold;
-}
-
-.testimonial-section{
-  padding:60px 20px;
-  background:#050512;
-}
-
-.testimonials{
-  max-width:900px;
-  margin:auto;
-  display:flex;
-  gap:20px;
-  flex-wrap:wrap;
-  justify-content:center;
-}
-
-.testimonial{
-  background:#1a1a1a;
-  padding:20px;
-  border-radius:15px;
-  width:260px;
-  font-style:italic;
-}
-
-.testimonial span{
-  display:block;
-  margin-top:10px;
-  color:gold;
-}
-
-.about-cta{
-  padding:70px 20px;
-}
-
-.about-cta h2{color:gold;margin-bottom:20px}
-
-/* Responsive */
-@media(max-width:768px){
-  .stats-section{flex-direction:column}
-}
-.cert-section{padding:60px 20px}
-.cert-section h2{color:gold;margin-bottom:30px}
-
-.cert-box{
-  display:flex;
-  gap:20px;
-  justify-content:center;
-  flex-wrap:wrap;
-}
-
-.cert{
-  background:#1a1a1a;
-
-  .review-section{padding:60px 20px;background:#050512}
-
-.reviews{
-  display:flex;
-  gap:20px;
-  justify-content:center;
-  flex-wrap:wrap;
-}
-
-.review{
-  width:260px;
-  background:#1a1a1a;
-  padding:20px;
-  border-radius:15px;
-}
-
-.review span{
-  display:block;
-  margin-top:10px;
-  color:gold;
-}
-.counter-section{
-  display:flex;
-  justify-content:center;
-  gap:40px;
-  padding:60px 20px;
-}
-
-.counter h3{
-  color:gold;
-  font-size:38px;
-  animation:glow 2s infinite alternate;
-}
-
-@keyframes glow{
-  from{ text-shadow:0 0 5px gold }
-  to{ text-shadow:0 0 20px gold }
-}
-
-  padding:18px 25px;
-  border-radius:12px;
-  border:1px solid gold;
-}
+/* WHATSAPP */
 .wa-float{
   position:fixed;
   bottom:20px;
   right:20px;
   background:#25D366;
   color:#fff;
-  font-size:28px;
+  font-size:26px;
   padding:14px 18px;
   border-radius:50%;
-  text-decoration:none;
-  box-shadow:0 0 15px #25D366;
-}
-.about-extra ul{
-  list-style:none;
-  padding:0;
-}
-.about-extra li{
-  margin:10px 0;
-  color:gold;
 }
 
-
+/* MOBILE */
+@media(max-width:768px){
+  .hero{flex-direction:column}
+  .kundli-box{width:95%}
+}
