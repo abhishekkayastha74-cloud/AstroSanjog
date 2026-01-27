@@ -31,6 +31,7 @@ body{
 }
 
 /* HERO */
+<img src="images/surya-dev.jpg" alt="Acharya Pandit Sanjay Ji">
 .hero{
   min-height:90vh;
   background:linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
