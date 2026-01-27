@@ -119,3 +119,55 @@ button{background:gold;font-weight:bold}
   .hero{flex-direction:column}
   .kundli-box{width:95%}
 }
+/* CONTACT PAGE */
+.contact-info a{color:gold;text-decoration:none}
+
+.contact-actions{
+  margin-top:15px;
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.btn.outline{
+  background:transparent;
+  border:2px solid gold;
+  color:gold;
+}
+
+.contact-form-section{
+  padding:60px 20px;
+  background:#050512;
+}
+
+.contact-form{
+  max-width:500px;
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea{
+  padding:12px;
+  border-radius:6px;
+  border:none;
+}
+
+.contact-form textarea{
+  min-height:100px;
+}
+
+.map-section{
+  padding:60px 20px;
+}
+
+.map-section iframe{
+  width:100%;
+  max-width:900px;
+  height:300px;
+  border:2px solid gold;
+  border-radius:15px;
+}
