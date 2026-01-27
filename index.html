@@ -67,4 +67,31 @@
 </footer>
 
 </body>
+  <!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <title>Online Kundli | Astro Sanjog</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>🔮 Online Kundli Generator</h1>
+
+<div class="form-box">
+  <input type="text" id="name" placeholder="Naam">
+  <input type="date" id="dob">
+  <input type="time" id="tob">
+  <input type="text" id="place" placeholder="Janam Sthan">
+  <button onclick="generateKundli()">Kundli Banaye</button>
+</div>
+
+<div class="kundli-box">
+  <object id="kundliChart" data="./chart.svg" type="image/svg+xml"></object>
+</div>
+
+<script src="kundli.js"></script>
+</body>
+</html>
+
 </html>
