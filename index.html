@@ -5,6 +5,32 @@
   <title>Astro Sanjog | Acharya Pandit Sanjay Ji</title>
   <link rel="stylesheet" href="style.css">
 </head>
+<script>
+function generateKundli(){
+  const name = document.getElementById("kundliName").value;
+  const dob  = document.getElementById("kundliDOB").value;
+
+  if(!name || !dob){
+    alert("Naam aur Date of Birth bharein");
+    return;
+  }
+
+  const day = new Date(dob).getDate();
+  const planets = ["☀️","🌙","♂️","☿️","♃","♀️","♄","☊","☋"];
+
+  const obj = document.getElementById("kundliChart");
+  obj.addEventListener("load", ()=>{
+    const svg = obj.contentDocument;
+    for(let i=1;i<=12;i++){
+      const el = svg.getElementById("h"+i);
+      if(el) el.textContent = planets[(day+i)%planets.length];
+    }
+  });
+
+  document.getElementById("kundliResult").innerHTML =
+    `👤 <b>${name}</b> | 📅 ${dob}<br>यह डेमो कुंडली है – विस्तृत परामर्श हेतु संपर्क करें`;
+}
+</script>
 
 <body>
 
