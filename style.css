@@ -359,6 +359,23 @@ body{
   margin-top:10px;
   color:gold;
 }
+.counter-section{
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  padding:60px 20px;
+}
+
+.counter h3{
+  color:gold;
+  font-size:38px;
+  animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+  from{ text-shadow:0 0 5px gold }
+  to{ text-shadow:0 0 20px gold }
+}
 
   padding:18px 25px;
   border-radius:12px;
