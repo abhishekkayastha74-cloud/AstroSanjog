@@ -107,3 +107,36 @@ body{
   text-align:center;
   padding:20px;
 }
+body {
+  font-family: Arial;
+  background: #0b0b1a;
+  color: #fff;
+  text-align: center;
+}
+
+h1 {
+  color: gold;
+}
+
+.form-box {
+  margin: 20px auto;
+}
+
+input, button {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 6px;
+  border: none;
+}
+
+button {
+  background: gold;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.kundli-box {
+  width: 400px;
+  margin: auto;
+  border: 2px solid gold;
+}
