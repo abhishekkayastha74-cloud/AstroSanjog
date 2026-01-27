@@ -337,6 +337,29 @@ body{
 
 .cert{
   background:#1a1a1a;
+
+  .review-section{padding:60px 20px;background:#050512}
+
+.reviews{
+  display:flex;
+  gap:20px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.review{
+  width:260px;
+  background:#1a1a1a;
+  padding:20px;
+  border-radius:15px;
+}
+
+.review span{
+  display:block;
+  margin-top:10px;
+  color:gold;
+}
+
   padding:18px 25px;
   border-radius:12px;
   border:1px solid gold;
