@@ -5,9 +5,10 @@
   <title>Astro Sanjog | Acharya Pandit Sanjay Ji</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<!-- NAVBAR -->
+<!-- ================= NAVBAR ================= -->
 <header class="navbar">
   <div class="logo">
     <img src="./images/logo.png" alt="Astro Sanjog Logo">
@@ -21,12 +22,12 @@
   </nav>
 </header>
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
 <section class="hero">
   <div class="hero-content">
     <h1>WELCOME TO ASTRO SANJOG 🔮</h1>
     <p>Guidance through Vedic Astrology by Acharya Pandit Sanjay Ji</p>
-    <a href="consult.html" class="btn">Book Consultation</a>
+    <a href="#kundliGenerator" class="btn">Generate Kundli</a>
   </div>
 
   <div class="hero-img">
@@ -34,7 +35,7 @@
   </div>
 </section>
 
-<!-- SERVICES -->
+<!-- ================= SERVICES ================= -->
 <section id="consultation" class="packages">
   <h2>CONSULTATION SERVICES</h2>
 
@@ -62,97 +63,8 @@
   </div>
 </section>
 
-<footer class="footer">
-  <p>© 2026 Astro Sanjog | Acharya Pandit Sanjay Ji</p>
-</footer>
-
-</body>
-  <!DOCTYPE html>
-<html lang="hi">
-<head>
-  <meta charset="UTF-8">
-  <title>Online Kundli | Astro Sanjog</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<h1>🔮 Online Kundli Generator</h1>
-
-<div class="form-box">
-  <input type="text" id="name" placeholder="Naam">
-  <input type="date" id="dob">
-  <input type="time" id="tob">
-  <input type="text" id="place" placeholder="Janam Sthan">
-  <button onclick="generateKundli()">Kundli Banaye</button>
-</div>
-
-<div class="kundli-box">
-  <object id="kundliChart" data="./chart.svg" type="image/svg+xml"></object>
-</div>
-
-<script src="kundli.js"></script>
-</body>
-</html>
-
-</html>
-<!DOCTYPE html>
-<html lang="hi">
-<head>
-<meta charset="UTF-8">
-<title>Professional Kundli | Astro Sanjog</title>
-<link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-<h1>🔮 Professional Kundli Generator</h1>
-
-<div class="form-box">
-  <input type="text" id="name" placeholder="Naam">
-  <input type="date" id="dob">
-  <button onclick="generateKundli()">Kundli Banaye</button>
-</div>
-
-<p id="result"></p>
-
-<div class="kundli-box">
-  <object id="kundliChart" data="./chart.svg" type="image/svg+xml"></object>
-</div>
-
-<script src="kundli.js"></script>
-</body>
-  <script>
-function generateKundli(){
-  const name = document.getElementById("kundliName").value;
-  const dob  = document.getElementById("kundliDOB").value;
-
-  if(!name || !dob){
-    alert("Naam aur Date of Birth bharein");
-    return;
-  }
-
-  const d = new Date(dob).getDate();
-  const planets=["Surya","Chandra","Mangal","Budh","Guru","Shukra","Shani","Rahu","Ketu"];
-
-  const obj = document.getElementById("kundliChart");
-  obj.addEventListener("load", ()=>{
-    const svg = obj.contentDocument;
-    for(let i=1; i<=12; i++){
-      svg.getElementById("h"+i).textContent = planets[(d + i) % planets.length];
-    }
-  });
-
-  document.getElementById("kundliSummary").innerHTML = 
-    `👤 ${name} | 📅 ${dob} <br>⚠️ Demo Kundli — Real astrology API future upgrade.`;
-}
-
-function downloadPDF(){
-  window.print(); // Simple PDF print
-}
-</script>
-
-</html>
-<!-- Kundli Generator Section Start -->
-<section id="kundliGenerator">
+<!-- ================= KUNDLI GENERATOR ================= -->
+<section id="kundliGenerator" class="kundli-section">
   <h2>🔮 Online Kundli Generator</h2>
 
   <div class="form-box">
@@ -166,7 +78,7 @@ function downloadPDF(){
   <p id="kundliSummary"></p>
 
   <div class="kundli-box">
-    <object id="kundliChart" data="chart.svg" type="image/svg+xml"></object>
+    <object id="kundliChart" data="./chart.svg" type="image/svg+xml"></object>
   </div>
 
   <div class="actions">
@@ -176,4 +88,46 @@ function downloadPDF(){
     </a>
   </div>
 </section>
-<!-- Kundli Generator Section End -->
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <p>© 2026 Astro Sanjog | Acharya Pandit Sanjay Ji</p>
+</footer>
+
+<!-- ================= SCRIPT ================= -->
+<script>
+function generateKundli(){
+  const name = document.getElementById("kundliName").value;
+  const dob  = document.getElementById("kundliDOB").value;
+
+  if(!name || !dob){
+    alert("Naam aur Date of Birth bharein");
+    return;
+  }
+
+  const day = new Date(dob).getDate();
+  const planets = ["Surya","Chandra","Mangal","Budh","Guru","Shukra","Shani","Rahu","Ketu"];
+
+  const obj = document.getElementById("kundliChart");
+  obj.addEventListener("load", function(){
+    const svg = obj.contentDocument;
+    for(let i=1;i<=12;i++){
+      const box = svg.getElementById("h"+i);
+      if(box){
+        box.textContent = planets[(day+i)%planets.length];
+      }
+    }
+  });
+
+  document.getElementById("kundliSummary").innerHTML =
+    `👤 <b>${name}</b> | 📅 ${dob}<br>
+     ⚠️ Demo Kundli (Real astrology calculation coming soon)`;
+}
+
+function downloadPDF(){
+  window.print();
+}
+</script>
+
+</body>
+</html>
