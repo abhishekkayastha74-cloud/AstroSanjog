@@ -2,122 +2,105 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Astro Sanjog | Acharya Pandit Sanjay Ji</title>
+  <title>Astro Sanjog | Vedic Astrology & Remedies</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- WHATSAPP FLOAT -->
+<!-- FLOATING WHATSAPP -->
 <a href="https://wa.me/919929806534" target="_blank" class="wa-float">💬</a>
 
 <!-- NAVBAR -->
 <header class="navbar">
   <div class="logo">
-    <img src="./images/logo.png" alt="Astro Sanjog">
+    <img src="./images/logo.png">
     <span>ASTRO SANJOG</span>
   </div>
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
-    <a href="#consultation">Consultation</a>
     <a href="contact.html">Contact</a>
   </nav>
 </header>
 
-<!-- HERO -->
+<!-- HERO SECTION -->
 <section class="hero">
   <div class="hero-content">
-    <h1>WELCOME TO ASTRO SANJOG 🔮</h1>
-    <p>Guidance through Vedic Astrology by Acharya Pandit Sanjay Ji</p>
-    <a href="#kundli" class="btn">Generate Kundli</a>
+    <h1>Divine Guidance Through<br>Vedic Astrology</h1>
+    <p>
+      Accurate Kundli Analysis, Planetary Remedies & Spiritual Solutions  
+      by <strong>Acharya Pandit Sanjay Ji</strong>
+    </p>
+
+    <div class="hero-btns">
+      <a href="contact.html" class="btn">📞 Book Consultation</a>
+      <a href="about.html" class="btn outline">🔮 Know Your Astrologer</a>
+    </div>
   </div>
-  <div class="hero-img">
-    <img src="./images/surya-dev.jpg" alt="Acharya Pandit Sanjay Ji">
+</section>
+
+<!-- ABOUT PREVIEW -->
+<section class="about-section">
+  <div class="about-card">
+    <img src="./images/surya-dev.jpg">
+
+    <div class="about-text">
+      <h2>Acharya Pandit Sanjay Ji</h2>
+      <p>
+        A renowned Vedic Astrologer with years of experience in
+        Kundli Reading, Dosha Remedies, Tantra Guidance and Spiritual Healing.
+      </p>
+      <a href="about.html" class="btn small">Read Full Profile</a>
+    </div>
   </div>
 </section>
 
 <!-- SERVICES -->
-<section id="consultation" class="packages">
-  <h2>CONSULTATION SERVICES</h2>
-  <div class="cards">
-    <div class="card" onclick="location.href='#kundli'">
-      <img src="./images/chart.svg">
-      <h3>Kundli Analysis</h3>
-      <p>Birth chart with remedies</p>
-      <span>₹1100</span>
-    </div>
+<section class="why-section">
+  <h2>Our Astrology Services</h2>
 
-    <div class="card">
-      <img src="./images/palm.svg">
-      <h3>Palm Reading</h3>
-      <p>Life & career guidance</p>
-      <span>₹1500</span>
-    </div>
-
-    <div class="card">
-      <img src="./images/remedy.svg">
-      <h3>Marriage Solutions</h3>
-      <p>Delay & dosha remedies</p>
-      <span>₹2100</span>
-    </div>
+  <div class="why-cards">
+    <div class="why-card">🔯 Janam Kundli Analysis</div>
+    <div class="why-card">💍 Marriage & Love Problems</div>
+    <div class="why-card">💼 Career & Business Growth</div>
+    <div class="why-card">🪔 Grah Shanti & Remedies</div>
+    <div class="why-card">🧿 Tantra & Protection</div>
+    <div class="why-card">🌙 Dosha Nivaran</div>
   </div>
 </section>
 
-<!-- KUNDLI GENERATOR -->
-<section id="kundli" class="kundli-section">
-  <h2>🔮 Online Kundli Generator</h2>
+<!-- WHY TRUST -->
+<section class="trust-section">
+  <h2>Why Choose Astro Sanjog?</h2>
 
-  <div class="form-box">
-    <input type="text" id="kName" placeholder="Naam">
-    <input type="date" id="kDOB">
-    <input type="time">
-    <input type="text" placeholder="Janam Sthan">
-    <button onclick="generateKundli()">Kundli Banaye</button>
-  </div>
-
-  <p id="kResult"></p>
-
-  <div class="kundli-box">
-    <object id="kChart" data="./images/chart.svg" type="image/svg+xml"></object>
+  <div class="trust-box">
+    <div>✔️ 15+ Years Experience</div>
+    <div>✔️ 100% Confidential</div>
+    <div>✔️ Genuine Remedies</div>
+    <div>✔️ Thousands of Satisfied Clients</div>
   </div>
 </section>
 
+<!-- CTA -->
+<section class="cta">
+  <h2>Facing Problems in Life?</h2>
+  <p>Get divine solutions through astrology & remedies</p>
+  <a href="https://wa.me/919929806534" target="_blank" class="btn">
+    📲 WhatsApp Now
+  </a>
+</section>
+
+<!-- SEO -->
 <p class="seo-text">
-Best Astrologer in Jaipur | Online Kundli | Vedic Astrology Expert – Astro Sanjog
+Best Astrologer in Jaipur | Online Astrology Consultation |
+Kundli Matching | Astro Sanjog India
 </p>
 
+<!-- FOOTER -->
 <footer class="footer">
   © 2026 Astro Sanjog | Acharya Pandit Sanjay Ji
 </footer>
-
-<!-- SCRIPT -->
-<script>
-function generateKundli(){
-  const name = document.getElementById("kName").value;
-  const dob  = document.getElementById("kDOB").value;
-
-  if(!name || !dob){
-    alert("Naam aur Date of Birth bharein");
-    return;
-  }
-
-  const day = new Date(dob).getDate();
-  const planets = ["☀️","🌙","♂️","☿️","♃","♀️","♄","☊","☋"];
-
-  const obj = document.getElementById("kChart");
-  obj.addEventListener("load", ()=>{
-    const svg = obj.contentDocument;
-    for(let i=1;i<=12;i++){
-      const el = svg.getElementById("h"+i);
-      if(el) el.textContent = planets[(day+i)%planets.length];
-    }
-  });
-
-  document.getElementById("kResult").innerHTML =
-    `👤 <b>${name}</b> | 📅 ${dob}<br>Demo Kundli – Detailed consultation on WhatsApp`;
-}
-</script>
 
 </body>
 </html>
