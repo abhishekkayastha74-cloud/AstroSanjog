@@ -325,3 +325,20 @@ body{
 @media(max-width:768px){
   .stats-section{flex-direction:column}
 }
+.cert-section{padding:60px 20px}
+.cert-section h2{color:gold;margin-bottom:30px}
+
+.cert-box{
+  display:flex;
+  gap:20px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.cert{
+  background:#1a1a1a;
+  padding:18px 25px;
+  border-radius:12px;
+  border:1px solid gold;
+}
+
