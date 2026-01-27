@@ -300,3 +300,14 @@ button{background:gold;font-weight:bold}
   background:#050512;
 }
 .cta h2{color:gold}
+.trust-badge{
+  position:fixed;
+  bottom:90px;
+  right:20px;
+  background:gold;
+  color:#000;
+  padding:8px 14px;
+  font-size:12px;
+  border-radius:20px;
+  font-weight:bold;
+}
