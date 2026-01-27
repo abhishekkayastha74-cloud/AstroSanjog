@@ -171,3 +171,71 @@ button{background:gold;font-weight:bold}
   border:2px solid gold;
   border-radius:15px;
 }
+/* HOME HERO */
+.hero{
+  height:90vh;
+  background:
+    linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),
+    url('./images/hero-bg.jpg') center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.hero-content{
+  max-width:800px;
+  padding:20px;
+}
+
+.hero h1{
+  font-size:48px;
+  color:gold;
+}
+
+.hero p{
+  font-size:18px;
+  margin:15px 0 25px;
+}
+
+.hero-btns{
+  display:flex;
+  gap:15px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.btn.small{
+  padding:10px 20px;
+  font-size:14px;
+}
+
+/* TRUST SECTION */
+.trust-section{
+  padding:60px 20px;
+  background:#050512;
+  text-align:center;
+}
+
+.trust-box{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:15px;
+  max-width:900px;
+  margin:auto;
+}
+
+.trust-box div{
+  border:1px solid gold;
+  padding:15px;
+  border-radius:10px;
+}
+
+/* CTA */
+.cta{
+  padding:70px 20px;
+  background:linear-gradient(45deg,#0a0a1a,#000);
+  text-align:center;
+}
+
+.cta h2{color:gold;font-size:32px}
