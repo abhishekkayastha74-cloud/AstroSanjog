@@ -398,4 +398,13 @@ body{
   text-decoration:none;
   box-shadow:0 0 15px #25D366;
 }
+.about-extra ul{
+  list-style:none;
+  padding:0;
+}
+.about-extra li{
+  margin:10px 0;
+  color:gold;
+}
+
 
