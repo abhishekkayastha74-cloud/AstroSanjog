@@ -1,1 +1,3 @@
-
+<div id="kundli-container">
+  <object id="kundliChart" type="image/svg+xml" data="chart.svg"></object>
+</div>
