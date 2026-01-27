@@ -227,67 +227,101 @@ body{
     width:90%;
   }
 }
-/* ================= ABOUT PAGE ================= */
-.about-section{
-  padding:60px 20px;
-  background:#050512;
+/* ================= ABOUT NEXT LEVEL ================= */
+.about-hero{
+  padding:80px 20px;
+  background:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),
+  url("./images/hero-bg.jpg");
+  background-size:cover;
 }
 
-.about-section h1{
-  color:gold;
-  margin-bottom:40px;
-}
+.about-hero h1{color:gold;font-size:42px}
+.about-hero p{max-width:600px;margin:auto}
+
+.about-section{padding:60px 20px}
 
 .about-card{
   max-width:900px;
   margin:auto;
-  background:#1a1a1a;
-  border-radius:20px;
-  padding:30px;
   display:flex;
   gap:30px;
-  align-items:center;
+  background:#1a1a1a;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 0 30px rgba(255,215,0,0.25);
   flex-wrap:wrap;
-  box-shadow:0 0 25px rgba(255,215,0,0.2);
+  align-items:center;
 }
 
 .about-card img{
   width:260px;
   border-radius:20px;
   border:3px solid gold;
-  box-shadow:0 0 20px gold;
 }
 
-.about-content{
-  flex:1;
-  text-align:left;
+.stats-section{
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  padding:50px 20px;
+  background:#050512;
 }
 
-.about-content h2{
+.stat h3{color:gold;font-size:36px}
+.stat p{color:#ccc}
+
+.why-section{padding:60px 20px}
+.why-section h2{color:gold;margin-bottom:30px}
+
+.why-cards{
+  display:flex;
+  gap:20px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.why-card{
+  background:#1f1f1f;
+  padding:20px 25px;
+  border-radius:12px;
+  border:1px solid gold;
+}
+
+.testimonial-section{
+  padding:60px 20px;
+  background:#050512;
+}
+
+.testimonials{
+  max-width:900px;
+  margin:auto;
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.testimonial{
+  background:#1a1a1a;
+  padding:20px;
+  border-radius:15px;
+  width:260px;
+  font-style:italic;
+}
+
+.testimonial span{
+  display:block;
+  margin-top:10px;
   color:gold;
 }
 
-.about-content p{
-  line-height:1.7;
-  margin-bottom:15px;
+.about-cta{
+  padding:70px 20px;
 }
 
-.about-content ul{
-  list-style:none;
-  padding:0;
-}
-
-.about-content ul li{
-  margin-bottom:8px;
-  color:#ffd700;
-}
+.about-cta h2{color:gold;margin-bottom:20px}
 
 /* Responsive */
 @media(max-width:768px){
-  .about-card{
-    text-align:center;
-  }
-  .about-content{
-    text-align:center;
-  }
+  .stats-section{flex-direction:column}
 }
