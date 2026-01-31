@@ -40,6 +40,7 @@ footer{text-align:center;padding:30px;background:#111;color:#aaa}
   <div class="nav">
     <div class="logo">AstroSanjog</div>
     <ul>
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
@@ -89,6 +90,23 @@ AstroSanjog by Acharya Pandit Sanjay Ji offers authentic Vedic Astrology solutio
 </div>
 </section>
 
+  <section id="testimonials">
+  <h2 class="section-title">Client Testimonials</h2>
+  <div class="cards">
+    <div class="testimonial reveal">
+      <p>“Very accurate astrology and remedies changed my life.”</p>
+      <h4>– Ramesh Kumar</h4>
+    </div>
+    <div class="testimonial reveal">
+      <p>“Marriage problem solved within weeks. Thank you Guruji.”</p>
+      <h4>– Neha Sharma</h4>
+    </div>
+    <div class="testimonial reveal">
+      <p>“Best astrologer for business and career guidance.”</p>
+      <h4>– Amit Verma</h4>
+    </div>
+  </div>
+  </section>
 <section id="appointment">
 <h2 class="section-title">Book Appointment</h2>
 <form onsubmit="sendWhatsApp();return false;">
@@ -117,6 +135,20 @@ let n=name.value,m=mobile.value,p=problem.value;
 window.open(`https://wa.me/919929806534?text=Name:${n}%0AMobile:${m}%0AProblem:${p}`,'_blank');
 }
 </script>
+<script>
+function toggleMenu(){
+  document.querySelector('.nav ul').classList.toggle('active');
+}
 
+/* ===== Scroll Reveal ===== */
+window.addEventListener('scroll',()=>{
+  document.querySelectorAll('.reveal').forEach(el=>{
+    let top = el.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      el.classList.add('active');
+    }
+  });
+});
+</script>
 </body>
 </html>
