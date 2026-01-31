@@ -2,153 +2,135 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>AstroSanjog | Acharya Pandit Sanjay Ji</title>
-<meta name="description" content="AstroSanjog by Acharya Pandit Sanjay Ji – Trusted Vedic Astrology, Kundli, Palmistry, Remedies, Navgrah Shanti. Book appointment on WhatsApp.">
-<meta name="keywords" content="Astrology, Pandit Sanjay Ji, Vedic Astrology, Kundli, Palmistry, Navgrah Shanti">
-<meta name="author" content="Acharya Pandit Sanjay Ji">
+<title>AstroSanjog – Acharya Pandit Sanjay Ji</title>
+<meta name="description" content="AstroSanjog – Real Kundli, PDF, Rashifal & Astrology by Acharya Pandit Sanjay Ji">
+<meta name="keywords" content="Astrology, Kundli, Horoscope, Match Making, Pandit Sanjay Ji, AstroSanjog">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
-body{background:#0b0b0f;color:#fff}
-header{position:fixed;top:0;width:100%;background:#111;z-index:999}
-.nav{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:15px}
-.logo{color:#f5c542;font-size:22px;font-weight:700}
-.nav ul{list-style:none;display:flex;gap:20px}
-.nav a:hover{color:#f5c542}
-.hero{min-height:100vh;background:linear-gradient(to right,#1a1a2e,#0f3460);display:flex;align-items:center;justify-content:center;text-align:center;padding-top:100px}
-.hero h1{color:#f5c542;font-size:42px}
-section{padding:80px 20px;max-width:1200px;margin:auto}
-.section-title{text-align:center;color:#f5c542;margin-bottom:40px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
-.card{background:#151520;padding:25px;border-radius:12px;box-shadow:0 10px 25px rgba(0,0,0,.4)}
-.btn{background:#f5c542;color:#000;padding:10px 20px;border-radius:30px;display:inline-block;margin-top:15px}
-form input,form textarea{width:100%;padding:12px;margin:8px 0;border-radius:6px;border:none}
-form button{background:#f5c542;color:#000;padding:12px 20px;border-radius:30px;border:none}
-iframe{width:100%;border-radius:12px;min-height:300px}
-footer{text-align:center;padding:30px;background:#111;color:#aaa}
-.whatsapp-btn{position:fixed;bottom:20px;right:20px;background:#25d366;color:#fff;padding:14px 18px;border-radius:50%;font-size:24px;z-index:999}
+:root{--gold:#f5c542;--bg:#0b0b0f;--card:#151515}
+*{box-sizing:border-box}
+body{margin:0;font-family:Segoe UI,sans-serif;background:var(--bg);color:#fff;scroll-behavior:smooth}
+header{position:sticky;top:0;background:#111;padding:14px 22px;display:flex;justify-content:space-between;align-items:center;z-index:999;box-shadow:0 0 12px #f5c54255}
+header h1{color:var(--gold);margin:0}
+nav a{color:#fff;text-decoration:none;margin:0 10px}
+nav a:hover{color:var(--gold)}
+section{padding:70px 20px;text-align:center}
+.hero{background:radial-gradient(circle at top,#222,#000)}
+.hero h2{font-size:42px;color:var(--gold)}
+.glow{text-shadow:0 0 15px var(--gold)}
+.form-box{max-width:420px;margin:20px auto;display:grid;gap:12px}
+.form-box input,.form-box select{padding:12px;border-radius:10px;border:none;background:#222;color:#fff}
+.form-box button{background:linear-gradient(45deg,var(--gold),#ff9800);border:none;padding:14px;border-radius:30px;font-weight:bold;cursor:pointer}
+.card{background:var(--card);padding:20px;border-radius:15px}
+.whatsapp{position:fixed;bottom:20px;right:20px;background:#25d366;color:#fff;padding:14px 20px;border-radius:50px;text-decoration:none;font-weight:bold}
+iframe{border-radius:15px}
+.reveal{opacity:0;transform:translateY(40px);transition:1s}
+.reveal.active{opacity:1;transform:none}
 </style>
 </head>
 
 <body>
 
 <header>
-  <div class="nav">
-    <div class="logo">AstroSanjog</div>
-    <ul>
-      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#navgrah">Navgrah</a></li>
-      <li><a href="#appointment">Appointment</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
+<h1>AstroSanjog</h1>
+<nav>
+<a href="#home">Home</a>
+<a href="#kundli">Kundli</a>
+<a href="#rashifal">Rashifal</a>
+<a href="#admin">Admin</a>
+<a href="#contact">Contact</a>
+</nav>
 </header>
 
-<div id="home" class="hero">
-  <div data-aos="zoom-in">
-    <h1>Acharya Pandit Sanjay Ji</h1>
-    <p>Trusted Vedic Astrologer • Kundli • Palmistry • Remedies</p>
-    <a class="btn" href="#appointment">Book Appointment</a>
-  </div>
-</div>
-
-<section id="about">
-<h2 class="section-title">About</h2>
-<p style="text-align:center;max-width:800px;margin:auto">
-AstroSanjog by Acharya Pandit Sanjay Ji offers authentic Vedic Astrology solutions for life, career, love, marriage and business problems.
-</p>
+<section id="home" class="hero reveal">
+<h2 class="glow">AstroSanjog</h2>
+<p>All Astrology Work By <b>Acharya Pandit Sanjay Ji</b></p>
 </section>
 
-<section id="services">
-<h2 class="section-title">Services</h2>
-<div class="cards">
-<div class="card">Horoscope & Kundli Analysis</div>
-<div class="card">Palmistry & Face Reading</div>
-<div class="card">Love & Marriage Solutions</div>
-<div class="card">Business & Career Remedies</div>
-<div class="card">Vastu & Spiritual Healing</div>
-<div class="card">Black Magic & Evil Eye Removal</div>
-</div>
-</section>
-
-<section id="navgrah">
-<h2 class="section-title">Navgrah Shanti</h2>
-<div class="cards">
-<div class="card">☀️ Surya – Power & Health</div>
-<div class="card">🌙 Chandra – Peace & Mind</div>
-<div class="card">🔥 Mangal – Energy & Marriage</div>
-<div class="card">📿 Guru – Wealth & Wisdom</div>
-<div class="card">🪐 Shani – Karma & Justice</div>
-<div class="card">☊ Rahu–Ketu – Protection & Success</div>
-</div>
-</section>
-
-  <section id="testimonials">
-  <h2 class="section-title">Client Testimonials</h2>
-  <div class="cards">
-    <div class="testimonial reveal">
-      <p>“Very accurate astrology and remedies changed my life.”</p>
-      <h4>– Ramesh Kumar</h4>
-    </div>
-    <div class="testimonial reveal">
-      <p>“Marriage problem solved within weeks. Thank you Guruji.”</p>
-      <h4>– Neha Sharma</h4>
-    </div>
-    <div class="testimonial reveal">
-      <p>“Best astrologer for business and career guidance.”</p>
-      <h4>– Amit Verma</h4>
-    </div>
-  </div>
-  </section>
-<section id="appointment">
-<h2 class="section-title">Book Appointment</h2>
-<form onsubmit="sendWhatsApp();return false;">
-<input id="name" placeholder="Your Name" required>
-<input id="mobile" placeholder="Your Mobile" required>
-<textarea id="problem" placeholder="Your Problem"></textarea>
-<button type="submit">Send on WhatsApp</button>
+<section id="kundli" class="reveal">
+<h2 class="glow">Real Kundli Generator</h2>
+<form class="form-box" onsubmit="generateKundli(event)">
+<input id="name" placeholder="Full Name" required>
+<input id="dob" type="date" required>
+<input id="tob" type="time" required>
+<input id="pob" placeholder="Place of Birth" required>
+<button>Generate Kundli</button>
 </form>
+<div id="kundliResult" class="card" style="display:none"></div>
+<button onclick="downloadPDF()">Download Kundli PDF</button>
 </section>
 
-<section id="contact">
-<h2 class="section-title">Contact & Location</h2>
-<p style="text-align:center">📞 WhatsApp: 9929806534 | 9950502961</p>
-<iframe src="https://www.google.com/maps?q=India&output=embed"></iframe>
+<section id="rashifal" class="reveal">
+<h2 class="glow">Daily Rashifal</h2>
+<div id="rashiFeed" class="card">Loading Rashifal...</div>
 </section>
 
-<footer>© 2026 AstroSanjog | Acharya Pandit Sanjay Ji</footer>
+<section id="admin" class="reveal">
+<h2 class="glow">Admin Panel</h2>
+<form class="form-box" onsubmit="adminLogin(event)">
+<input id="adminUser" placeholder="Username" required>
+<input id="adminPass" type="password" placeholder="Password" required>
+<button>Login</button>
+</form>
+<div id="adminArea" style="display:none" class="card">
+<h3>Welcome Admin</h3>
+<p>Here you can manage Rashifal, Kundli Leads & Appointments</p>
+</div>
+</section>
 
-<a class="whatsapp-btn" href="https://wa.me/919929806534" target="_blank">💬</a>
+<section id="contact" class="reveal">
+<h2 class="glow">Contact & Appointment</h2>
+<form class="form-box" onsubmit="sendApp(event)">
+<input id="cname" placeholder="Your Name" required>
+<input id="cphone" placeholder="Mobile Number" required>
+<input id="cmsg" placeholder="Message" required>
+<button>Book Appointment</button>
+</form>
+<p>📞 WhatsApp: 9929806534 / 8209991542</p>
+<iframe src="https://www.google.com/maps?q=jaipur&output=embed" width="90%" height="300"></iframe>
+</section>
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<a class="whatsapp" href="https://wa.me/919929806534" target="_blank">Chat on WhatsApp</a>
+
 <script>
-AOS.init({duration:1000});
-function sendWhatsApp(){
-let n=name.value,m=mobile.value,p=problem.value;
-window.open(`https://wa.me/919929806534?text=Name:${n}%0AMobile:${m}%0AProblem:${p}`,'_blank');
-}
-</script>
-<script>
-function toggleMenu(){
-  document.querySelector('.nav ul').classList.toggle('active');
+function generateKundli(e){
+e.preventDefault();
+let html=`🔮 Kundli Generated<br>
+Name: ${name.value}<br>
+DOB: ${dob.value}<br>
+Time: ${tob.value}<br>
+Place: ${pob.value}<br><br>
+➡️ Planetary Chart will appear here via API`;
+kundliResult.innerHTML=html;
+kundliResult.style.display="block";
 }
 
-/* ===== Scroll Reveal ===== */
-window.addEventListener('scroll',()=>{
-  document.querySelectorAll('.reveal').forEach(el=>{
-    let top = el.getBoundingClientRect().top;
-    if(top < window.innerHeight - 100){
-      el.classList.add('active');
-    }
-  });
+function downloadPDF(){
+alert("PDF Feature Ready – API/Server Side Integration Needed");
+}
+
+function adminLogin(e){
+e.preventDefault();
+if(adminUser.value==="admin" && adminPass.value==="1234"){
+adminArea.style.display="block";
+}else{alert("Invalid Login");}
+}
+
+function sendApp(e){
+e.preventDefault();
+let msg=`Appointment\nName:${cname.value}\nPhone:${cphone.value}\nMessage:${cmsg.value}`;
+window.open("https://wa.me/919929806534?text="+encodeURIComponent(msg));
+}
+
+window.addEventListener("scroll",()=>{
+document.querySelectorAll(".reveal").forEach(el=>{
+if(el.getBoundingClientRect().top<window.innerHeight-100){el.classList.add("active")}
 });
+});
+
+document.getElementById("rashiFeed").innerHTML="♈ Aries: Good Day<br>♉ Taurus: Financial Growth<br>♊ Gemini: New Opportunities<br>♋ Cancer: Family Happiness";
 </script>
+
 </body>
 </html>
