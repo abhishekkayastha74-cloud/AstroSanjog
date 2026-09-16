@@ -1,1878 +1,908 @@
-/* =========================================================
-   ACHARYA PANDIT SANJAY JI — PREMIUM ASTROLOGY WEBSITE
-   Main Stylesheet
-   ========================================================= */
-
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap");
-
-/* -------------------- DESIGN TOKENS -------------------- */
-
-:root {
-  --navy-950: #030912;
-  --navy-900: #07111f;
-  --navy-850: #0a1728;
-  --navy-800: #0d1b2e;
-  --navy-700: #14253b;
-
-  --gold-500: #c8a45d;
-  --gold-400: #d9bb7b;
-  --gold-300: #e7d2a2;
-  --gold-200: #f1e3c3;
-
-  --cream-100: #f7f1e3;
-  --cream-50: #fffdf8;
-  --white: #ffffff;
-
-  --text-dark: #111827;
-  --text-light: #f9f5ec;
-  --text-muted: #c8ced8;
-  --text-grey: #667085;
-
-  --green: #3e725e;
-  --green-light: #79b499;
-  --danger: #b42318;
-
-  --border-dark: rgba(231, 210, 162, 0.18);
-  --border-gold: rgba(200, 164, 93, 0.45);
-  --glass-dark: rgba(8, 20, 35, 0.78);
-
-  --shadow-small: 0 8px 24px rgba(3, 9, 18, 0.1);
-  --shadow-medium: 0 18px 50px rgba(3, 9, 18, 0.14);
-  --shadow-dark: 0 24px 80px rgba(0, 0, 0, 0.32);
-
-  --radius-small: 12px;
-  --radius-medium: 20px;
-  --radius-large: 30px;
-  --radius-pill: 999px;
-
-  --container: 1180px;
-  --transition: 220ms ease;
-}
-
-/* -------------------- RESET -------------------- */
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 100px;
-}
-
-body {
-  margin: 0;
-  min-width: 320px;
-  overflow-x: hidden;
-  background: var(--cream-50);
-  color: var(--text-dark);
-  font-family: "Manrope", "Noto Sans Devanagari", sans-serif;
-  font-size: 16px;
-  line-height: 1.7;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-}
-
-body.menu-open,
-body.mobile-menu-open {
-  overflow: hidden;
-}
-
-img,
-svg {
-  display: block;
-  max-width: 100%;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button,
-input,
-select,
-textarea {
-  font: inherit;
-}
-
-button,
-a {
-  touch-action: manipulation;
-}
-
-button {
-  border: 0;
-}
-
-h1,
-h2,
-h3,
-h4,
-p {
-  margin-top: 0;
-}
-
-h1,
-h2,
-h3,
-h4 {
-  line-height: 1.2;
-}
-
-::selection {
-  background: var(--gold-500);
-  color: var(--navy-950);
-}
-
-:focus-visible {
-  outline: 3px solid var(--gold-400);
-  outline-offset: 4px;
-}
-
-/* -------------------- SHARED LAYOUT -------------------- */
-
-.container {
-  width: min(calc(100% - 40px), var(--container));
-  margin-inline: auto;
-}
-
-.section {
-  position: relative;
-  padding: 100px 0;
-}
-
-.section-heading {
-  width: min(100%, 720px);
-  margin: 0 auto 52px;
-  text-align: center;
-}
-
-.section-heading h2 {
-  margin-bottom: 18px;
-  color: var(--navy-900);
-  font-family: "Cormorant Garamond", "Noto Sans Devanagari", serif;
-  font-size: clamp(2.15rem, 4vw, 3.5rem);
-  font-weight: 700;
-  letter-spacing: -0.025em;
-}
-
-.section-heading p {
-  margin-bottom: 0;
-  color: var(--text-grey);
-  font-size: 1.05rem;
-}
-
-.section-label,
-.hero-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  margin-bottom: 18px;
-  color: #956f29;
-  font-size: 0.76rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.section-label::before,
-.hero-label::before {
-  width: 28px;
-  height: 1px;
-  background: currentColor;
-  content: "";
-}
-
-/* -------------------- ACCESSIBILITY -------------------- */
-
-.skip-link {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  z-index: 9999;
-  padding: 11px 16px;
-  border-radius: 8px;
-  background: var(--gold-500);
-  color: var(--navy-950);
-  font-weight: 800;
-  transform: translateY(-150%);
-  transition: transform var(--transition);
-}
-
-.skip-link:focus {
-  transform: translateY(0);
-}
-
-/* -------------------- TOP BAR -------------------- */
-
-.top-bar {
-  position: relative;
-  z-index: 60;
-  border-bottom: 1px solid rgba(231, 210, 162, 0.12);
-  background: var(--navy-950);
-  color: var(--text-muted);
-}
-
-.top-bar-content {
-  min-height: 38px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  font-size: 0.78rem;
-}
-
-.top-bar-content p {
-  margin: 0;
-}
-
-.top-bar-right {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-}
-
-.top-bar-right a {
-  transition: color var(--transition);
-}
-
-.top-bar-right a:hover {
-  color: var(--gold-300);
-}
-
-.online-dot {
-  width: 8px;
-  height: 8px;
-  display: inline-block;
-  margin-right: 7px;
-  border-radius: 50%;
-  background: var(--green-light);
-  box-shadow: 0 0 0 4px rgba(121, 180, 153, 0.12);
-}
-
-/* -------------------- HEADER -------------------- */
-
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  border-bottom: 1px solid var(--border-dark);
-  background: rgba(7, 17, 31, 0.91);
-  color: var(--text-light);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-}
-
-.header-content {
-  min-height: 78px;
-  display: flex;
-  align-items: center;
-  gap: 30px;
-}
-
-.brand {
-  min-width: 245px;
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.brand-symbol {
-  width: 46px;
-  height: 46px;
-  display: grid;
-  flex: 0 0 auto;
-  place-items: center;
-  border: 1px solid var(--border-gold);
-  border-radius: 50%;
-  background:
-    radial-gradient(circle, rgba(200, 164, 93, 0.18), transparent 62%),
-    var(--navy-800);
-  color: var(--gold-300);
-  font-family: "Cormorant Garamond", serif;
-  font-size: 1.45rem;
-  font-weight: 700;
-  box-shadow: inset 0 0 18px rgba(200, 164, 93, 0.08);
-}
-
-.brand-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.2;
-}
-
-.brand-text strong {
-  color: var(--cream-50);
-  font-family: "Cormorant Garamond", "Noto Sans Devanagari", serif;
-  font-size: 1.12rem;
-  font-weight: 700;
-}
-
-.brand-text span {
-  margin-top: 4px;
-  color: var(--gold-300);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-}
-
-.desktop-nav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  margin-left: auto;
-}
-
-.desktop-nav > a,
-.nav-dropdown > a {
-  position: relative;
-  min-height: 44px;
-  display: inline-flex;
-  align-items: center;
-  padding: 10px 12px;
-  color: #d8dde5;
-  font-size: 0.84rem;
-  font-weight: 600;
-  white-space: nowrap;
-  transition:
-    color var(--transition),
-    background var(--transition);
-}
-
-.desktop-nav > a:hover,
-.desktop-nav > a.active,
-.nav-dropdown > a:hover {
-  color: var(--gold-300);
-}
-
-.desktop-nav > a::after,
-.nav-dropdown > a::after {
-  position: absolute;
-  right: 12px;
-  bottom: 4px;
-  left: 12px;
-  height: 1px;
-  background: var(--gold-400);
-  content: "";
-  transform: scaleX(0);
-  transition: transform var(--transition);
-}
-
-.desktop-nav > a:hover::after,
-.desktop-nav > a.active::after,
-.nav-dropdown > a:hover::after {
-  transform: scaleX(1);
-}
-
-.nav-dropdown {
-  position: relative;
-}
-
-.dropdown-menu {
-  position: absolute;
-  top: calc(100% + 8px);
-  left: 0;
-  width: 230px;
-  padding: 9px;
-  border: 1px solid var(--border-gold);
-  border-radius: 15px;
-  background: rgba(9, 22, 39, 0.98);
-  box-shadow: var(--shadow-dark);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(8px);
-  transition:
-    opacity var(--transition),
-    visibility var(--transition),
-    transform var(--transition);
-}
-
-.nav-dropdown:hover .dropdown-menu,
-.nav-dropdown:focus-within .dropdown-menu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.dropdown-menu a {
-  display: block;
-  padding: 10px 12px;
-  border-radius: 9px;
-  color: #d8dde5;
-  font-size: 0.82rem;
-  transition:
-    color var(--transition),
-    background var(--transition);
-}
-
-.dropdown-menu a:hover {
-  background: rgba(200, 164, 93, 0.1);
-  color: var(--gold-300);
-}
-
-.header-button {
-  min-height: 46px;
-  display: inline-flex;
-  flex: 0 0 auto;
-  align-items: center;
-  justify-content: center;
-  padding: 11px 18px;
-  border: 1px solid var(--gold-500);
-  border-radius: var(--radius-pill);
-  background: var(--gold-500);
-  color: var(--navy-950);
-  font-size: 0.82rem;
-  font-weight: 800;
-  box-shadow: 0 9px 28px rgba(200, 164, 93, 0.18);
-  transition:
-    background var(--transition),
-    transform var(--transition),
-    box-shadow var(--transition);
-}
-
-.header-button:hover {
-  background: var(--gold-300);
-  box-shadow: 0 12px 32px rgba(200, 164, 93, 0.28);
-  transform: translateY(-2px);
-}
-
-.menu-button {
-  width: 48px;
-  height: 48px;
-  display: none;
-  margin-left: auto;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--border-gold);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.04);
-  color: var(--cream-50);
-  cursor: pointer;
-}
-
-.menu-button span,
-.menu-button::before,
-.menu-button::after {
-  width: 21px;
-  height: 2px;
-  display: block;
-  border-radius: 2px;
-  background: currentColor;
-  content: "";
-  transition:
-    transform var(--transition),
-    opacity var(--transition);
-}
-
-.menu-button {
-  flex-direction: column;
-  gap: 5px;
-}
-
-body.menu-open .menu-button span,
-body.mobile-menu-open .menu-button span {
-  opacity: 0;
-}
-
-body.menu-open .menu-button::before,
-body.mobile-menu-open .menu-button::before {
-  transform: translateY(7px) rotate(45deg);
-}
-
-body.menu-open .menu-button::after,
-body.mobile-menu-open .menu-button::after {
-  transform: translateY(-7px) rotate(-45deg);
-}
-
-.mobile-menu {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 45;
-  width: min(88vw, 370px);
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  padding: 132px 25px 35px;
-  border-left: 1px solid var(--border-gold);
-  background: rgba(5, 14, 26, 0.98);
-  box-shadow: -20px 0 70px rgba(0, 0, 0, 0.45);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateX(105%);
-  transition:
-    opacity 250ms ease,
-    visibility 250ms ease,
-    transform 250ms ease;
-}
-
-.mobile-menu.open,
-.mobile-menu.mobile-menu-open,
-body.menu-open .mobile-menu,
-body.mobile-menu-open .mobile-menu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(0);
-}
-
-.mobile-menu a {
-  min-height: 48px;
-  display: flex;
-  align-items: center;
-  padding: 10px 13px;
-  border-bottom: 1px solid rgba(231, 210, 162, 0.1);
-  color: var(--cream-100);
-  font-weight: 600;
-}
-
-.mobile-menu a:hover {
-  color: var(--gold-300);
-}
-
-.mobile-menu .mobile-cta {
-  justify-content: center;
-  margin-top: 17px;
-  border: 1px solid var(--gold-500);
-  border-radius: var(--radius-pill);
-  background: var(--gold-500);
-  color: var(--navy-950);
-  font-weight: 800;
-}
-
-/* -------------------- BUTTONS -------------------- */
-
-.primary-button,
-.secondary-button,
-.form-submit,
-.center-button a {
-  min-height: 52px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 9px;
-  padding: 13px 23px;
-  border-radius: var(--radius-pill);
-  font-size: 0.92rem;
-  font-weight: 800;
-  cursor: pointer;
-  transition:
-    color var(--transition),
-    background var(--transition),
-    border-color var(--transition),
-    transform var(--transition),
-    box-shadow var(--transition);
-}
-
-.primary-button,
-.form-submit {
-  border: 1px solid var(--gold-500);
-  background: var(--gold-500);
-  color: var(--navy-950);
-  box-shadow: 0 12px 34px rgba(200, 164, 93, 0.18);
-}
-
-.primary-button:hover,
-.form-submit:hover {
-  background: var(--gold-300);
-  box-shadow: 0 16px 38px rgba(200, 164, 93, 0.27);
-  transform: translateY(-2px);
-}
-
-.secondary-button {
-  border: 1px solid rgba(231, 210, 162, 0.48);
-  background: rgba(255, 255, 255, 0.035);
-  color: var(--cream-100);
-}
-
-.secondary-button:hover {
-  border-color: var(--gold-400);
-  background: rgba(200, 164, 93, 0.1);
-  color: var(--gold-300);
-  transform: translateY(-2px);
-}
-
-/* -------------------- HERO -------------------- */
-
-.hero-section {
-  position: relative;
-  min-height: 720px;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  padding: 105px 0 96px;
-  background:
-    radial-gradient(circle at 78% 36%, rgba(200, 164, 93, 0.14), transparent 25%),
-    radial-gradient(circle at 18% 5%, rgba(48, 83, 125, 0.2), transparent 33%),
-    linear-gradient(135deg, var(--navy-950), var(--navy-900) 48%, #0b1c31);
-  color: var(--text-light);
-}
-
-.hero-section::before {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(231, 210, 162, 0.026) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(231, 210, 162, 0.026) 1px, transparent 1px);
-  background-size: 70px 70px;
-  content: "";
-  mask-image: linear-gradient(to bottom, black, transparent 92%);
-}
-
-.hero-background {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.hero-background::before,
-.hero-background::after {
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--gold-300);
-  content: "";
-  box-shadow:
-    110px 65px 0 rgba(231, 210, 162, 0.44),
-    290px 150px 0 rgba(231, 210, 162, 0.25),
-    510px 45px 0 rgba(231, 210, 162, 0.4),
-    690px 205px 0 rgba(231, 210, 162, 0.2),
-    880px 85px 0 rgba(231, 210, 162, 0.34),
-    1060px 195px 0 rgba(231, 210, 162, 0.2);
-  opacity: 0.48;
-}
-
-.hero-background::before {
-  top: 55px;
-  left: 4%;
-}
-
-.hero-background::after {
-  right: 7%;
-  bottom: 100px;
-  transform: rotate(180deg);
-}
-
-.hero-grid {
-  position: relative;
-  z-index: 2;
-  display: grid;
-  grid-template-columns: minmax(0, 1.08fr) minmax(390px, 0.92fr);
-  align-items: center;
-  gap: 70px;
-}
-
-.hero-content {
-  max-width: 680px;
-}
-
-.hero-label {
-  color: var(--gold-300);
-}
-
-.hero-content h1 {
-  margin-bottom: 24px;
-  color: var(--cream-50);
-  font-family: "Cormorant Garamond", "Noto Sans Devanagari", serif;
-  font-size: clamp(3rem, 5.8vw, 5rem);
-  font-weight: 700;
-  letter-spacing: -0.035em;
-}
-
-.hero-content h1 span {
-  color: var(--gold-300);
-}
-
-.hero-description {
-  max-width: 630px;
-  margin-bottom: 30px;
-  color: var(--text-muted);
-  font-size: clamp(1rem, 1.5vw, 1.13rem);
-}
-
-.hero-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 13px;
-  margin-bottom: 32px;
-}
-
-.hero-features {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 11px;
-}
-
-.hero-features span {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 12px;
-  border: 1px solid rgba(231, 210, 162, 0.16);
-  border-radius: var(--radius-pill);
-  background: rgba(255, 255, 255, 0.035);
-  color: #dce1e8;
-  font-size: 0.77rem;
-  font-weight: 600;
-}
-
-.hero-features span::before {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--gold-400);
-  content: "";
-}
-
-.hero-visual {
-  position: relative;
-  width: min(100%, 480px);
-  aspect-ratio: 1;
-  display: grid;
-  place-items: center;
-  margin-inline: auto;
-  filter: drop-shadow(0 32px 45px rgba(0, 0, 0, 0.35));
-}
-
-.hero-visual::before {
-  position: absolute;
-  width: 72%;
-  height: 72%;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(200, 164, 93, 0.17), transparent 68%);
-  content: "";
-}
-
-.orbit {
-  position: absolute;
-  border: 1px solid rgba(231, 210, 162, 0.32);
-  border-radius: 50%;
-}
-
-.orbit-one {
-  width: 94%;
-  height: 94%;
-  animation: orbit-spin 28s linear infinite;
-}
-
-.orbit-two {
-  width: 76%;
-  height: 76%;
-  border-style: dashed;
-  animation: orbit-spin-reverse 23s linear infinite;
-}
-
-.orbit-three {
-  width: 58%;
-  height: 58%;
-  animation: orbit-spin 18s linear infinite;
-}
-
-.orbit::before,
-.orbit::after {
-  position: absolute;
-  width: 11px;
-  height: 11px;
-  border: 2px solid var(--gold-300);
-  border-radius: 50%;
-  background: var(--navy-900);
-  content: "";
-  box-shadow: 0 0 18px rgba(231, 210, 162, 0.45);
-}
-
-.orbit::before {
-  top: 8%;
-  left: 18%;
-}
-
-.orbit::after {
-  right: 10%;
-  bottom: 18%;
-}
-
-.kundli-square {
-  position: relative;
-  width: 43%;
-  aspect-ratio: 1;
-  display: grid;
-  place-items: center;
-  border: 2px solid var(--gold-400);
-  background: rgba(10, 23, 40, 0.72);
-  color: var(--gold-300);
-  transform: rotate(45deg);
-  box-shadow:
-    inset 0 0 35px rgba(200, 164, 93, 0.1),
-    0 0 40px rgba(200, 164, 93, 0.08);
-}
-
-.kundli-square::before,
-.kundli-square::after {
-  position: absolute;
-  inset: 17%;
-  border: 1px solid rgba(231, 210, 162, 0.55);
-  content: "";
-}
-
-.kundli-square::after {
-  inset: 0;
-  transform: rotate(45deg) scale(0.71);
-}
-
-.kundli-square span {
-  font-family: "Cormorant Garamond", "Noto Sans Devanagari", serif;
-  font-size: clamp(1.05rem, 2.2vw, 1.6rem);
-  font-weight: 700;
-  transform: rotate(-45deg);
-}
-
-.planet,
-.planet-one,
-.planet-two,
-.planet-three {
-  position: absolute;
-  z-index: 3;
-  border-radius: 50%;
-}
-
-.planet-one {
-  top: 12%;
-  right: 20%;
-  width: 26px;
-  height: 26px;
-  background: radial-gradient(circle at 35% 30%, #fff1c5, #c28a2c 70%);
-  box-shadow: 0 0 30px rgba(200, 164, 93, 0.38);
-}
-
-.planet-two {
-  right: 9%;
-  bottom: 23%;
-  width: 15px;
-  height: 15px;
-  background: #9eb9ca;
-  box-shadow: 0 0 22px rgba(158, 185, 202, 0.34);
-}
-
-.planet-three {
-  bottom: 15%;
-  left: 18%;
-  width: 19px;
-  height: 19px;
-  background: #bf735c;
-  box-shadow: 0 0 22px rgba(191, 115, 92, 0.35);
-}
-
-@keyframes orbit-spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes orbit-spin-reverse {
-  to {
-    transform: rotate(-360deg);
-  }
-}
-
-/* -------------------- TRUST STRIP -------------------- */
-
-.trust-strip {
-  position: relative;
-  z-index: 3;
-  border-top: 1px solid var(--border-dark);
-  border-bottom: 1px solid rgba(200, 164, 93, 0.2);
-  background: var(--navy-800);
-  color: var(--cream-100);
-}
-
-.trust-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.trust-item {
-  position: relative;
-  padding: 26px 24px;
-  text-align: center;
-}
-
-.trust-item:not(:last-child)::after {
-  position: absolute;
-  top: 25%;
-  right: 0;
-  bottom: 25%;
-  width: 1px;
-  background: var(--border-dark);
-  content: "";
-}
-
-.trust-item strong {
-  display: block;
-  margin-bottom: 4px;
-  color: var(--gold-300);
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(1.55rem, 3vw, 2.2rem);
-  line-height: 1;
-}
-
-.trust-item span {
-  color: var(--text-muted);
-  font-size: 0.83rem;
-}
-
-/* -------------------- SERVICES -------------------- */
-
-.services-section {
-  background:
-    radial-gradient(circle at 5% 20%, rgba(200, 164, 93, 0.08), transparent 24%),
-    var(--cream-50);
-}
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-}
-
-.service-card {
-  position: relative;
-  min-height: 285px;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  padding: 29px;
-  border: 1px solid #e5dece;
-  border-radius: var(--radius-medium);
-  background: var(--white);
-  box-shadow: var(--shadow-small);
-  transition:
-    border-color var(--transition),
-    transform var(--transition),
-    box-shadow var(--transition);
-}
-
-.service-card::before {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 115px;
-  height: 115px;
-  border-radius: 0 0 0 100%;
-  background: linear-gradient(225deg, rgba(200, 164, 93, 0.12), transparent 68%);
-  content: "";
-}
-
-.service-card:hover {
-  border-color: rgba(200, 164, 93, 0.55);
-  box-shadow: var(--shadow-medium);
-  transform: translateY(-6px);
-}
-
-.service-card.featured-service,
-.service-card.featured {
-  border-color: rgba(200, 164, 93, 0.4);
-  background:
-    radial-gradient(circle at 90% 10%, rgba(200, 164, 93, 0.15), transparent 35%),
-    var(--navy-800);
-  color: var(--cream-50);
-}
-
-.service-icon {
-  width: 50px;
-  height: 50px;
-  display: grid;
-  place-items: center;
-  margin-bottom: 23px;
-  border: 1px solid rgba(200, 164, 93, 0.4);
-  border-radius: 14px;
-  background: rgba(200, 164, 93, 0.1);
-  color: #9a7029;
-  font-size: 1.25rem;
-}
-
-.featured-service .service-icon,
-.featured .service-icon {
-  color: var(--gold-300);
-}
-
-.service-card h3 {
-  margin-bottom: 12px;
-  color: var(--navy-900);
-  font-size: 1.15rem;
-}
-
-.featured-service h3,
-.featured h3 {
-  color: var(--cream-50);
-}
-
-.service-card p {
-  margin-bottom: 24px;
-  color: var(--text-grey);
-  font-size: 0.9rem;
-}
-
-.featured-service p,
-.featured p {
-  color: var(--text-muted);
-}
-
-.service-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: auto;
-  color: #916820;
-  font-size: 0.84rem;
-  font-weight: 800;
-}
-
-.featured-service .service-link,
-.featured .service-link {
-  color: var(--gold-300);
-}
-
-.service-link::after {
-  content: "→";
-  transition: transform var(--transition);
-}
-
-.service-link:hover::after {
-  transform: translateX(5px);
-}
-
-.center-button {
-  margin-top: 38px;
-  text-align: center;
-}
-
-.center-button a {
-  border: 1px solid var(--navy-900);
-  background: var(--navy-900);
-  color: var(--cream-50);
-}
-
-.center-button a:hover {
-  border-color: var(--gold-500);
-  background: var(--gold-500);
-  color: var(--navy-950);
-  transform: translateY(-2px);
-}
-
-/* -------------------- KUNDLI FORM -------------------- */
-
-.kundli-section {
-  overflow: hidden;
-  background:
-    radial-gradient(circle at 80% 30%, rgba(200, 164, 93, 0.12), transparent 27%),
-    linear-gradient(135deg, var(--navy-950), var(--navy-800));
-  color: var(--cream-100);
-}
-
-.kundli-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 0.82fr) minmax(500px, 1.18fr);
-  align-items: center;
-  gap: 70px;
-}
-
-.kundli-content .section-label {
-  color: var(--gold-300);
-}
-
-.kundli-content h2 {
-  margin-bottom: 20px;
-  color: var(--cream-50);
-  font-family: "Cormorant Garamond", "Noto Sans Devanagari", serif;
-  font-size: clamp(2.25rem, 4vw, 3.6rem);
-}
-
-.kundli-content > p {
-  margin-bottom: 28px;
-  color: var(--text-muted);
-}
-
-.kundli-content ul {
-  display: grid;
-  gap: 12px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.kundli-content li {
-  position: relative;
-  padding-left: 27px;
-  color: #e1e4e9;
-}
-
-.kundli-content li::before {
-  position: absolute;
-  top: 0.65em;
-  left: 0;
-  width: 9px;
-  height: 9px;
-  border: 2px solid var(--gold-400);
-  border-radius: 50%;
-  content: "";
-}
-
-.kundli-form-card {
-  padding: 34px;
-  border: 1px solid var(--border-gold);
-  border-radius: var(--radius-large);
-  background: rgba(255, 253, 248, 0.97);
-  color: var(--text-dark);
-  box-shadow: var(--shadow-dark);
-}
-
-.form-heading {
-  margin-bottom: 25px;
-}
-
-.form-heading h3 {
-  margin-bottom: 7px;
-  color: var(--navy-900);
-  font-size: 1.35rem;
-}
-
-.form-heading p {
-  margin: 0;
-  color: var(--text-grey);
-  font-size: 0.84rem;
-}
-
-.form-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 17px;
-}
-
-.form-field {
-  min-width: 0;
-}
-
-.form-field-full {
-  grid-column: 1 / -1;
-}
-
-.form-field label {
-  display: block;
-  margin-bottom: 7px;
-  color: #253248;
-  font-size: 0.78rem;
-  font-weight: 700;
-}
-
-.form-field input,
-.form-field select,
-.form-field textarea {
-  width: 100%;
-  min-height: 48px;
-  padding: 11px 13px;
-  border: 1px solid #d8dce2;
-  border-radius: 10px;
-  outline: none;
-  background: var(--white);
-  color: var(--text-dark);
-  transition:
-    border-color var(--transition),
-    box-shadow var(--transition);
-}
-
-.form-field textarea {
-  min-height: 100px;
-  resize: vertical;
-}
-
-.form-field input:focus,
-.form-field select:focus,
-.form-field textarea:focus {
-  border-color: var(--gold-500);
-  box-shadow: 0 0 0 4px rgba(200, 164, 93, 0.13);
-}
-
-.form-submit {
-  width: 100%;
-  margin-top: 21px;
-}
-
-.form-message {
-  min-height: 24px;
-  margin: 12px 0 0;
-  color: var(--green);
-  font-size: 0.82rem;
-  font-weight: 700;
-  text-align: center;
-}
-
-/* -------------------- CALCULATORS -------------------- */
-
-.calculators-section {
-  background: #f5efe2;
-}
-
-.calculators-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.calculator-card {
-  position: relative;
-  overflow: hidden;
-  padding: 27px;
-  border: 1px solid #dfd6c4;
-  border-radius: var(--radius-medium);
-  background: rgba(255, 253, 248, 0.82);
-  box-shadow: 0 10px 30px rgba(24, 31, 43, 0.06);
-  transition:
-    background var(--transition),
-    border-color var(--transition),
-    transform var(--transition),
-    box-shadow var(--transition);
-}
-
-.calculator-card:hover {
-  border-color: rgba(200, 164, 93, 0.65);
-  background: var(--white);
-  box-shadow: var(--shadow-medium);
-  transform: translateY(-5px);
-}
-
-.calculator-number {
-  display: block;
-  margin-bottom: 18px;
-  color: rgba(149, 111, 41, 0.55);
-  font-family: "Cormorant Garamond", serif;
-  font-size: 2.2rem;
-  font-weight: 700;
-  line-height: 1;
-}
-
-.calculator-card h3 {
-  margin-bottom: 10px;
-  color: var(--navy-900);
-  font-size: 1.08rem;
-}
-
-.calculator-card p {
-  margin-bottom: 19px;
-  color: var(--text-grey);
-  font-size: 0.87rem;
-}
-
-.calculator-card a {
-  color: #8b641f;
-  font-size: 0.82rem;
-  font-weight: 800;
-}
-
-.calculator-card a::after {
-  margin-left: 7px;
-  content: "→";
-}
-
-/* -------------------- ABOUT -------------------- */
-
-.about-section {
-  background: var(--cream-50);
-}
-
-.about-grid {
-  display: grid;
-  grid-template-columns: minmax(360px, 0.85fr) minmax(0, 1.15fr);
-  align-items: center;
-  gap: 75px;
-}
-
-.about-visual {
-  position: relative;
-  min-height: 520px;
-  overflow: hidden;
-  border: 1px solid rgba(200, 164, 93, 0.45);
-  border-radius: var(--radius-large);
-  background:
-    radial-gradient(circle at 50% 36%, rgba(231, 210, 162, 0.2), transparent 25%),
-    linear-gradient(145deg, var(--navy-700), var(--navy-950));
-  box-shadow: var(--shadow-medium);
-}
-
-.about-visual::before {
-  position: absolute;
-  inset: 12%;
-  border: 1px solid rgba(231, 210, 162, 0.24);
-  border-radius: 50%;
-  content: "";
-}
-
-.about-visual::after {
-  position: absolute;
-  inset: 24%;
-  border: 1px dashed rgba(231, 210, 162, 0.34);
-  border-radius: 50%;
-  content: "";
-}
-
-.about-visual img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.about-symbol {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  color: var(--gold-300);
-  font-family: "Cormorant Garamond", serif;
-  font-size: 5rem;
-  font-weight: 700;
-}
-
-.about-badge {
-  position: absolute;
-  right: 20px;
-  bottom: 20px;
-  left: 20px;
-  z-index: 2;
-  padding: 18px;
-  border: 1px solid var(--border-gold);
-  border-radius: 15px;
-  background: rgba(5, 14, 26, 0.86);
-  color: var(--cream-100);
-  text-align: center;
-  backdrop-filter: blur(12px);
-}
-
-.about-content .section-label {
-  color: #956f29;
-}
-
-.about-content h2 {
-  margin-bottom: 20px;
-  color: var(--navy-900);
-  font-family: "Cormorant Garamond", "Noto Sans Devanagari", serif;
-  font-size: clamp(2.3rem, 4vw, 3.7rem);
-}
-
-.about-content p {
-  color: var(--text-grey);
-}
-
-.about-points {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 13px;
-  margin: 26px 0 31px;
-}
-
-.about-point {
-  padding: 14px 15px;
-  border: 1px solid #e3dccd;
-  border-radius: 12px;
-  background: var(--white);
-  color: #263246;
-  font-size: 0.84rem;
-  font-weight: 700;
-}
-
-.about-point::before {
-  margin-right: 8px;
-  color: #916820;
-  content: "✓";
-}
-
-/* -------------------- CONSULTATION CTA -------------------- */
-
-.consultation-cta {
-  padding: 38px 0;
-  background: var(--cream-50);
-}
-
-.cta-panel {
-  position: relative;
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  gap: 35px;
-  padding: 52px 58px;
-  border: 1px solid var(--border-gold);
-  border-radius: var(--radius-large);
-  background:
-    radial-gradient(circle at 90% 20%, rgba(200, 164, 93, 0.15), transparent 30%),
-    linear-gradient(135deg, var(--navy-950), var(--navy-800));
-  color: var(--cream-100);
-  box-shadow: var(--shadow-dark);
-}
-
-.cta-panel::before {
-  position: absolute;
-  top: -90px;
-  right: -70px;
-  width: 260px;
-  height: 260px;
-  border: 1px solid rgba(231, 210, 162, 0.14);
-  border-radius: 50%;
-  content: "";
-}
-
-.cta-content {
-  position: relative;
-  z-index: 1;
-}
-
-.cta-content h2 {
-  margin-bottom: 13px;
-  color: var(--cream-50);
-  font-family: "Cormorant Garamond", "Noto Sans Devanagari", serif;
-  font-size: clamp(2rem, 4vw, 3.1rem);
-}
-
-.cta-content p {
-  max-width: 650px;
-  margin-bottom: 0;
-  color: var(--text-muted);
-}
-
-.cta-panel .primary-button {
-  position: relative;
-  z-index: 1;
-  white-space: nowrap;
-}
-
-/* -------------------- FAQ -------------------- */
-
-.faq-section {
-  background:
-    radial-gradient(circle at 10% 10%, rgba(200, 164, 93, 0.08), transparent 25%),
-    var(--cream-50);
-}
-
-.faq-list {
-  width: min(100%, 860px);
-  display: grid;
-  gap: 13px;
-  margin-inline: auto;
-}
-
-.faq-item {
-  overflow: hidden;
-  border: 1px solid #e0d8c8;
-  border-radius: 15px;
-  background: var(--white);
-  box-shadow: 0 7px 20px rgba(3, 9, 18, 0.04);
-}
-
-.faq-item summary {
-  position: relative;
-  min-height: 64px;
-  display: flex;
-  align-items: center;
-  padding: 18px 58px 18px 21px;
-  color: var(--navy-900);
-  font-weight: 750;
-  cursor: pointer;
-  list-style: none;
-}
-
-.faq-item summary::-webkit-details-marker {
-  display: none;
-}
-
-.faq-item summary::after {
-  position: absolute;
-  right: 20px;
-  width: 30px;
-  height: 30px;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(200, 164, 93, 0.4);
-  border-radius: 50%;
-  color: #916820;
-  content: "+";
-  font-size: 1.2rem;
-  transition: transform var(--transition);
-}
-
-.faq-item[open] summary::after {
-  content: "−";
-  transform: rotate(180deg);
-}
-
-.faq-item p {
-  margin: 0;
-  padding: 0 21px 22px;
-  color: var(--text-grey);
-  font-size: 0.91rem;
-}
-
-/* -------------------- FOOTER -------------------- */
-
-.site-footer {
-  position: relative;
-  overflow: hidden;
-  padding: 80px 0 0;
-  border-top: 1px solid var(--border-dark);
-  background: var(--navy-950);
-  color: var(--text-muted);
-}
-
-.site-footer::before {
-  position: absolute;
-  top: -180px;
-  left: 50%;
-  width: 520px;
-  height: 320px;
-  border: 1px solid rgba(231, 210, 162, 0.08);
-  border-radius: 50%;
-  content: "";
-  transform: translateX(-50%);
-}
-
-.footer-grid {
-  position: relative;
-  display: grid;
-  grid-template-columns: 1.5fr 0.8fr 0.8fr 1fr;
-  gap: 50px;
-  padding-bottom: 55px;
-}
-
-.footer-brand .brand {
-  min-width: 0;
-  margin-bottom: 20px;
-}
-
-.footer-brand p {
-  max-width: 380px;
-  color: #aeb6c2;
-  font-size: 0.88rem;
-}
-
-.footer-column h3 {
-  margin-bottom: 18px;
-  color: var(--gold-300);
-  font-size: 0.91rem;
-  letter-spacing: 0.04em;
-}
-
-.footer-column a,
-.footer-column p {
-  display: block;
-  margin-bottom: 10px;
-  color: #aeb6c2;
-  font-size: 0.84rem;
-  transition: color var(--transition);
-}
-
-.footer-column a:hover {
-  color: var(--gold-300);
-}
-
-.footer-bottom {
-  min-height: 66px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  border-top: 1px solid rgba(231, 210, 162, 0.1);
-  color: #8993a2;
-  font-size: 0.76rem;
-}
-
-.footer-bottom p {
-  margin: 0;
-}
-
-/* -------------------- RESPONSIVE — TABLET -------------------- */
-
-@media (max-width: 1100px) {
-  .desktop-nav {
-    display: none;
-  }
-
-  .menu-button {
-    display: flex;
-  }
-
-  .header-button {
-    margin-left: auto;
-  }
-
-  .hero-grid {
-    grid-template-columns: minmax(0, 1fr) 390px;
-    gap: 35px;
-  }
-
-  .services-grid,
-  .calculators-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .kundli-grid {
-    grid-template-columns: 1fr 1.15fr;
-    gap: 40px;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1.3fr repeat(2, 0.8fr);
-  }
-
-  .footer-column:last-child {
-    grid-column: 1 / -1;
-  }
-}
-
-@media (max-width: 860px) {
-  .section {
-    padding: 78px 0;
-  }
-
-  .top-bar-right {
-    display: none;
-  }
-
-  .top-bar-content {
-    justify-content: center;
-    text-align: center;
-  }
-
-  .header-button {
-    display: none;
-  }
-
-  .hero-section {
-    min-height: auto;
-    padding: 78px 0;
-  }
-
-  .hero-grid,
-  .kundli-grid,
-  .about-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-content {
-    max-width: 720px;
-  }
-
-  .hero-visual {
-    width: min(78vw, 430px);
-    margin-top: 15px;
-  }
-
-  .kundli-grid,
-  .about-grid {
-    gap: 48px;
-  }
-
-  .about-visual {
-    width: min(100%, 540px);
-    min-height: 500px;
-    margin-inline: auto;
-  }
-
-  .cta-panel {
-    grid-template-columns: 1fr;
-    padding: 43px 38px;
-  }
-
-  .cta-panel .primary-button {
-    width: fit-content;
-  }
-
-  .footer-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .footer-brand {
-    grid-column: 1 / -1;
-  }
-
-  .footer-column:last-child {
-    grid-column: auto;
-  }
-}
-
-/* -------------------- RESPONSIVE — MOBILE -------------------- */
-
-@media (max-width: 620px) {
-  .container {
-    width: min(calc(100% - 30px), var(--container));
-  }
-
-  .section {
-    padding: 65px 0;
-  }
-
-  .section-heading {
-    margin-bottom: 36px;
-    text-align: left;
-  }
-
-  .section-heading h2 {
-    font-size: 2.15rem;
-  }
-
-  .top-bar-content {
-    min-height: 34px;
-    font-size: 0.68rem;
-  }
-
-  .header-content {
-    min-height: 70px;
-  }
-
-  .brand {
-    min-width: 0;
-  }
-
-  .brand-symbol {
-    width: 41px;
-    height: 41px;
-  }
-
-  .brand-text strong {
-    font-size: 0.98rem;
-  }
-
-  .brand-text span {
-    font-size: 0.58rem;
-  }
-
-  .menu-button {
-    width: 44px;
-    height: 44px;
-  }
-
-  .hero-section {
-    padding: 63px 0 65px;
-  }
-
-  .hero-content h1 {
-    font-size: clamp(2.7rem, 13vw, 3.7rem);
-  }
-
-  .hero-description {
-    font-size: 0.96rem;
-  }
-
-  .hero-buttons {
-    flex-direction: column;
-  }
-
-  .hero-buttons a {
-    width: 100%;
-  }
-
-  .hero-features {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-
-  .hero-visual {
-    width: min(92vw, 370px);
-  }
-
-  .trust-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .trust-item {
-    padding: 20px;
-  }
-
-  .trust-item:not(:last-child)::after {
-    top: auto;
-    right: 20%;
-    bottom: 0;
-    left: 20%;
-    width: auto;
-    height: 1px;
-  }
-
-  .services-grid,
-  .calculators-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .service-card {
-    min-height: 260px;
-    padding: 25px;
-  }
-
-  .kundli-form-card {
-    padding: 25px 20px;
-    border-radius: 20px;
-  }
-
-  .form-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .form-field-full {
-    grid-column: auto;
-  }
-
-  .about-visual {
-    min-height: 410px;
-  }
-
-  .about-points {
-    grid-template-columns: 1fr;
-  }
-
-  .cta-panel {
-    padding: 35px 24px;
-  }
-
-  .cta-panel .primary-button {
-    width: 100%;
-  }
-
-  .faq-item summary {
-    padding: 17px 54px 17px 17px;
-    font-size: 0.91rem;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 34px;
-  }
-
-  .footer-brand,
-  .footer-column:last-child {
-    grid-column: auto;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-    justify-content: center;
-    padding: 20px 0;
-    text-align: center;
-  }
-}
-
-/* -------------------- REDUCED MOTION -------------------- */
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: auto !important;
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Acharya Pandit Sanjay Ji | Vedic Astrology Consultation</title>
+
+  <meta
+    name="description"
+    content="Acharya Pandit Sanjay Ji के साथ व्यक्तिगत वैदिक ज्योतिष परामर्श। Career, marriage, business और life decisions के लिए स्पष्ट guidance."
+  >
+
+  <meta name="theme-color" content="#07111f">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <a class="skip-link" href="#main-content">
+    मुख्य भाग पर जाएँ
+  </a>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="container top-bar-content">
+
+      <p>
+        <span class="online-dot"></span>
+        Online Consultation Available
+      </p>
+
+      <p class="top-bar-right">
+        Hindi · Hinglish · Confidential
+      </p>
+
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+
+    <div class="container header-content">
+
+      <!-- LOGO -->
+      <a href="index.html" class="brand">
+
+        <div class="brand-symbol" aria-hidden="true">
+          <span>ॐ</span>
+        </div>
+
+        <div class="brand-text">
+          <strong>आचार्य पंडित संजय जी</strong>
+          <small>Vedic Astrology · Jaipur</small>
+        </div>
+
+      </a>
+
+      <!-- DESKTOP NAVIGATION -->
+      <nav class="desktop-nav" aria-label="Main navigation">
+
+        <a class="active" href="index.html">Home</a>
+
+        <a href="consultation.html">Consultation</a>
+
+        <a href="reports.html">Reports</a>
+
+        <a href="courses.html">Courses</a>
+
+        <a href="blog.html">Blog</a>
+
+        <a href="about.html">About Us</a>
+
+        <a href="contact.html">Contact Us</a>
+
+        <a href="book-pooja.html">Book Pooja</a>
+
+        <details class="nav-dropdown">
+          <summary>Free Calculators</summary>
+
+          <div class="dropdown-menu">
+            <a href="kundli-calculator.html">Kundli Calculator</a>
+            <a href="kundli-matching.html">Kundli Matching</a>
+            <a href="mangal-dosha.html">Mangal Dosha</a>
+            <a href="numerology.html">Numerology</a>
+            <a href="panchang.html">Daily Panchang</a>
+          </div>
+        </details>
+
+      </nav>
+
+      <a class="header-button" href="consultation.html">
+        Book Consultation
+      </a>
+
+      <!-- MOBILE MENU BUTTON -->
+      <button
+        class="menu-button"
+        id="menuButton"
+        type="button"
+        aria-label="Menu खोलें"
+        aria-controls="mobileMenu"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+
+    <!-- MOBILE NAVIGATION -->
+    <nav
+      class="mobile-menu"
+      id="mobileMenu"
+      aria-label="Mobile navigation"
+      aria-hidden="true"
+    >
+
+      <a href="index.html">Home</a>
+      <a href="consultation.html">Consultation</a>
+      <a href="reports.html">Reports</a>
+      <a href="courses.html">Courses</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="book-pooja.html">Book Pooja</a>
+      <a href="calculators.html">Free Calculators</a>
+
+      <a class="mobile-cta" href="consultation.html">
+        Book Consultation
+      </a>
+
+    </nav>
+
+  </header>
+
+  <main id="main-content">
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+
+      <div class="hero-background"></div>
+
+      <div class="container hero-grid">
+
+        <div class="hero-content">
+
+          <span class="hero-label">
+            Personal Vedic Consultation
+          </span>
+
+          <h1>
+            जब सवाल बड़े हों, जवाब
+            <span>डर नहीं—दिशा</span>
+            देने चाहिए।
+          </h1>
+
+          <p class="hero-description">
+            Career, marriage, business और personal decisions के लिए
+            आपकी जन्म कुंडली पर आधारित स्पष्ट, practical और
+            confidential guidance।
+          </p>
+
+          <div class="hero-buttons">
+
+            <a class="primary-button" href="consultation.html">
+              Consultation Book करें
+              <span aria-hidden="true">→</span>
+            </a>
+
+            <a class="secondary-button" href="#services">
+              Services देखें
+            </a>
+
+          </div>
+
+          <div class="hero-features">
+
+            <span>✓ One-to-one discussion</span>
+            <span>✓ Hindi और Hinglish</span>
+            <span>✓ Confidential guidance</span>
+
+          </div>
+
+        </div>
+
+        <!-- HERO VISUAL -->
+        <div class="hero-visual" aria-hidden="true">
+
+          <div class="orbit orbit-large"></div>
+          <div class="orbit orbit-medium"></div>
+          <div class="orbit orbit-small"></div>
+
+          <div class="kundli-square">
+            <span>ॐ</span>
+          </div>
+
+          <span class="planet planet-one"></span>
+          <span class="planet planet-two"></span>
+          <span class="planet planet-three"></span>
+          <span class="planet planet-four"></span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- TRUST SECTION -->
+    <section class="trust-section">
+
+      <div class="container trust-grid">
+
+        <div class="trust-intro">
+          <small>TRADITION, EXPLAINED CLEARLY</small>
+
+          <strong>
+            ज्योतिष को समझने योग्य और उपयोगी बनाना।
+          </strong>
+        </div>
+
+        <div class="trust-item">
+          <strong>15+</strong>
+          <span>Years of Experience</span>
+        </div>
+
+        <div class="trust-item">
+          <strong>2000+</strong>
+          <span>Client Consultations</span>
+        </div>
+
+        <div class="trust-item">
+          <strong>1:1</strong>
+          <span>Personal Guidance</span>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section services-section" id="services">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <span class="section-label">Our Services</span>
+
+          <h2>
+            अपने सवाल के अनुसार सही guidance चुनें
+          </h2>
+
+          <p>
+            General prediction के बजाय एक focused question और
+            आपकी पूरी situation पर ध्यान दिया जाता है।
+          </p>
+
+        </div>
+
+        <div class="services-grid">
+
+          <article class="service-card service-card-large">
+
+            <span class="service-number">01</span>
+
+            <div class="service-icon">कुं</div>
+
+            <h3>Personal Kundli Reading</h3>
+
+            <p>
+              आपकी birth chart के प्रमुख patterns, strengths,
+              pressure points और आगे के focus areas की reading।
+            </p>
+
+            <a href="consultation.html">
+              Consultation देखें →
+            </a>
+
+          </article>
+
+          <article class="service-card">
+
+            <span class="service-number">02</span>
+
+            <div class="service-icon">वि</div>
+
+            <h3>Marriage & Compatibility</h3>
+
+            <p>
+              Compatibility, relationship patterns और सही timing
+              पर balanced guidance।
+            </p>
+
+            <a href="consultation.html">
+              Details देखें →
+            </a>
+
+          </article>
+
+          <article class="service-card">
+
+            <span class="service-number">03</span>
+
+            <div class="service-icon">का</div>
+
+            <h3>Career & Business</h3>
+
+            <p>
+              Career growth, business direction, partnership और
+              decision timing पर focused consultation।
+            </p>
+
+            <a href="consultation.html">
+              Details देखें →
+            </a>
+
+          </article>
+
+          <article class="service-card">
+
+            <span class="service-number">04</span>
+
+            <div class="service-icon">द</div>
+
+            <h3>Dasha & Transit Review</h3>
+
+            <p>
+              वर्तमान दशा और ग्रह गोचर के practical effects को
+              simple language में समझें।
+            </p>
+
+            <a href="consultation.html">
+              Details देखें →
+            </a>
+
+          </article>
+
+          <article class="service-card service-card-large">
+
+            <span class="service-number">05</span>
+
+            <div class="service-icon">उ</div>
+
+            <h3>Personal Remedy Plan</h3>
+
+            <p>
+              आपकी situation के अनुसार simple, safe और manageable
+              Vedic remedies—बिना fear-based promises के।
+            </p>
+
+            <a href="consultation.html">
+              Remedy Consultation →
+            </a>
+
+          </article>
+
+        </div>
+
+        <div class="center-button">
+
+          <a class="primary-button" href="consultation.html">
+            सभी Consultations देखें
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- KUNDLI FORM -->
+    <section class="section kundli-section">
+
+      <div class="container kundli-grid">
+
+        <div class="kundli-content">
+
+          <span class="section-label">Birth Details</span>
+
+          <h2>
+            अपनी Kundli Consultation की तैयारी करें
+          </h2>
+
+          <p>
+            सही date, time और place से chart reading अधिक focused
+            होती है। अपनी basic details भरकर consultation summary
+            तैयार करें।
+          </p>
+
+          <ul>
+            <li>आपकी details browser से बाहर नहीं जाएँगी</li>
+            <li>यह Kundli prediction नहीं, preparation tool है</li>
+            <li>Exact birth time नहीं हो तो खाली छोड़ सकते हैं</li>
+          </ul>
+
+        </div>
+
+        <div class="kundli-form-card">
+
+          <form id="kundliForm">
+
+            <div class="form-heading">
+              <span>01</span>
+
+              <div>
+                <h3>Basic Birth Details</h3>
+                <p>* Required fields</p>
+              </div>
+            </div>
+
+            <div class="form-grid">
+
+              <div class="form-field">
+                <label for="fullName">पूरा नाम *</label>
+                <input
+                  id="fullName"
+                  name="fullName"
+                  type="text"
+                  placeholder="अपना नाम लिखें"
+                  required
+                >
+              </div>
+
+              <div class="form-field">
+                <label for="mainConcern">Main Concern *</label>
+
+                <select id="mainConcern" name="mainConcern" required>
+                  <option value="">Concern चुनें</option>
+                  <option value="Career & Business">
+                    Career & Business
+                  </option>
+                  <option value="Marriage & Relationship">
+                    Marriage & Relationship
+                  </option>
+                  <option value="Personal Kundli">
+                    Personal Kundli
+                  </option>
+                  <option value="Dasha & Transit">
+                    Dasha & Transit
+                  </option>
+                  <option value="Remedies">
+                    Remedies
+                  </option>
+                </select>
+              </div>
+
+              <div class="form-field">
+                <label for="birthDate">Date of Birth *</label>
+                <input
+                  id="birthDate"
+                  name="birthDate"
+                  type="date"
+                  required
+                >
+              </div>
+
+              <div class="form-field">
+                <label for="birthTime">Time of Birth</label>
+                <input
+                  id="birthTime"
+                  name="birthTime"
+                  type="time"
+                >
+              </div>
+
+              <div class="form-field form-field-full">
+                <label for="birthPlace">Birth Place *</label>
+                <input
+                  id="birthPlace"
+                  name="birthPlace"
+                  type="text"
+                  placeholder="City, State"
+                  required
+                >
+              </div>
+
+            </div>
+
+            <button class="form-submit" type="submit">
+              Consultation Summary बनाएँ
+              <span aria-hidden="true">→</span>
+            </button>
+
+            <div
+              class="form-message"
+              id="kundliMessage"
+              role="status"
+              hidden
+            ></div>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- FREE CALCULATORS -->
+    <section class="section calculators-section">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <span class="section-label">Free Astrology Tools</span>
+
+          <h2>
+            अपने जीवन के patterns को बेहतर समझें
+          </h2>
+
+          <p>
+            हमारे free calculators step-by-step बाद में activate किए जाएँगे।
+          </p>
+
+        </div>
+
+        <div class="calculator-grid">
+
+          <a class="calculator-card" href="kundli-calculator.html">
+            <span>01</span>
+            <h3>Kundli Calculator</h3>
+            <p>अपनी basic birth chart details देखें।</p>
+          </a>
+
+          <a class="calculator-card" href="kundli-matching.html">
+            <span>02</span>
+            <h3>Kundli Matching</h3>
+            <p>Marriage compatibility और Guna Milan।</p>
+          </a>
+
+          <a class="calculator-card" href="mangal-dosha.html">
+            <span>03</span>
+            <h3>Mangal Dosha</h3>
+            <p>Birth details के अनुसार Mangal Dosha check करें।</p>
+          </a>
+
+          <a class="calculator-card" href="numerology.html">
+            <span>04</span>
+            <h3>Numerology</h3>
+            <p>अपना मूलांक और basic personality pattern जानें।</p>
+          </a>
+
+        </div>
+
+        <div class="center-button">
+
+          <a class="secondary-dark-button" href="calculators.html">
+            सभी Calculators देखें
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ABOUT PREVIEW -->
+    <section class="section about-preview">
+
+      <div class="container about-grid">
+
+        <div class="about-visual" aria-hidden="true">
+
+          <div class="about-seal">
+            <strong>ॐ</strong>
+            <span>वैदिक ज्योतिष</span>
+          </div>
+
+        </div>
+
+        <div class="about-content">
+
+          <span class="section-label">About the Practice</span>
+
+          <h2>
+            परंपरा की गहराई, आज के जीवन की भाषा
+          </h2>
+
+          <p>
+            आचार्य पंडित संजय जी की consultation approach जन्म
+            कुंडली के अध्ययन को व्यक्ति की real-life situation से
+            जोड़ती है।
+          </p>
+
+          <p>
+            उद्देश्य डर पैदा करना नहीं, बल्कि आपके सवालों,
+            available choices और अगले कदम को अधिक स्पष्ट बनाना है।
+          </p>
+
+          <blockquote>
+            “ज्योतिष निर्णय आपके लिए नहीं लेता। वह आपको अपने
+            निर्णय को बेहतर समझने में मदद करता है।”
+          </blockquote>
+
+          <a class="secondary-button" href="about.html">
+            Acharya Ji के बारे में जानें
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- CONSULTATION CTA -->
+    <section class="consultation-cta">
+
+      <div class="container consultation-cta-card">
+
+        <div>
+
+          <span>START WITH ONE QUESTION</span>
+
+          <h2>
+            Clarity की शुरुआत एक सही सवाल से होती है।
+          </h2>
+
+          <p>
+            अपना main concern भेजें और suitable consultation
+            option जानें।
+          </p>
+
+        </div>
+
+        <a class="primary-button" href="consultation.html">
+          Consultation Request शुरू करें
+        </a>
+
+      </div>
+
+    </section>
+
+    <!-- FAQ -->
+    <section class="section faq-section">
+
+      <div class="container faq-grid">
+
+        <div class="faq-heading">
+
+          <span class="section-label">
+            Frequently Asked Questions
+          </span>
+
+          <h2>
+            Booking से पहले जरूरी बातें
+          </h2>
+
+          <p>
+            Simple answers, ताकि consultation को लेकर कोई confusion
+            न रहे।
+          </p>
+
+        </div>
+
+        <div class="faq-list">
+
+          <details open>
+            <summary>
+              Consultation के लिए क्या details चाहिए?
+            </summary>
+
+            <p>
+              Date of birth, accurate birth time, birth place और
+              एक clear question चाहिए।
+            </p>
+          </details>
+
+          <details>
+            <summary>
+              क्या online consultation available है?
+            </summary>
+
+            <p>
+              हाँ। Timing और joining details booking confirmation
+              के साथ share की जाएँगी।
+            </p>
+          </details>
+
+          <details>
+            <summary>
+              क्या किसी result की guarantee दी जाती है?
+            </summary>
+
+            <p>
+              नहीं। Astrology guidance और perspective देती है।
+              Final outcome आपके decisions और circumstances पर भी
+              निर्भर करता है।
+            </p>
+          </details>
+
+          <details>
+            <summary>
+              Fee और session duration कितनी है?
+            </summary>
+
+            <p>
+              Current fee और duration consultation type के अनुसार
+              request review होने के बाद confirm की जाएगी।
+            </p>
+          </details>
+
+          <details>
+            <summary>
+              मेरी information confidential रहेगी?
+            </summary>
+
+            <p>
+              Birth details और consultation discussion को
+              confidential रखा जाता है।
+            </p>
+          </details>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+
+    <div class="container footer-grid">
+
+      <div class="footer-brand">
+
+        <a href="index.html" class="brand">
+
+          <div class="brand-symbol">
+            <span>ॐ</span>
+          </div>
+
+          <div class="brand-text">
+            <strong>आचार्य पंडित संजय जी</strong>
+            <small>Vedic Astrology · Jaipur</small>
+          </div>
+
+        </a>
+
+        <p>
+          Personal Vedic guidance for clearer and more informed
+          life decisions.
+        </p>
+
+      </div>
+
+      <div class="footer-links">
+
+        <h3>Quick Links</h3>
+
+        <a href="index.html">Home</a>
+        <a href="consultation.html">Consultation</a>
+        <a href="reports.html">Reports</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+
+      </div>
+
+      <div class="footer-links">
+
+        <h3>Astrology Tools</h3>
+
+        <a href="kundli-calculator.html">Kundli Calculator</a>
+        <a href="kundli-matching.html">Kundli Matching</a>
+        <a href="mangal-dosha.html">Mangal Dosha</a>
+        <a href="panchang.html">Daily Panchang</a>
+
+      </div>
+
+      <div class="footer-note">
+
+        <h3>Responsible Astrology</h3>
+
+        <p>
+          Astrology guidance medical, legal या financial
+          professional advice का substitute नहीं है।
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="container footer-bottom">
+
+      <p>
+        © <span id="currentYear"></span>
+        Acharya Pandit Sanjay Ji. All rights reserved.
+      </p>
+
+      <p>
+        Designed for clarity, trust and privacy.
+      </p>
+
+    </div>
+
+  </footer>
+
+  <script>
+
+    const menuButton = document.getElementById("menuButton");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    menuButton.addEventListener("click", function () {
+
+      const isOpen =
+        menuButton.getAttribute("aria-expanded") === "true";
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        String(!isOpen)
+      );
+
+      mobileMenu.setAttribute(
+        "aria-hidden",
+        String(isOpen)
+      );
+
+      mobileMenu.classList.toggle("mobile-menu-open");
+
+      document.body.classList.toggle("menu-open");
+
+    });
+
+    mobileMenu.querySelectorAll("a").forEach(function (link) {
+
+      link.addEventListener("click", function () {
+
+        menuButton.setAttribute("aria-expanded", "false");
+
+        mobileMenu.setAttribute("aria-hidden", "true");
+
+        mobileMenu.classList.remove("mobile-menu-open");
+
+        document.body.classList.remove("menu-open");
+
+      });
+
+    });
+
+    document.addEventListener("keydown", function (event) {
+
+      if (event.key === "Escape") {
+
+        menuButton.setAttribute("aria-expanded", "false");
+
+        mobileMenu.setAttribute("aria-hidden", "true");
+
+        mobileMenu.classList.remove("mobile-menu-open");
+
+        document.body.classList.remove("menu-open");
+
+      }
+
+    });
+
+    const kundliForm =
+      document.getElementById("kundliForm");
+
+    const kundliMessage =
+      document.getElementById("kundliMessage");
+
+    kundliForm.addEventListener("submit", function (event) {
+
+      event.preventDefault();
+
+      if (!kundliForm.checkValidity()) {
+
+        kundliForm.reportValidity();
+
+        return;
+
+      }
+
+      const fullName =
+        document.getElementById("fullName").value;
+
+      const mainConcern =
+        document.getElementById("mainConcern").value;
+
+      kundliMessage.hidden = false;
+
+      kundliMessage.innerHTML =
+        "<strong>" + fullName + "</strong>, आपकी details तैयार हैं। " +
+        "Selected concern: <strong>" + mainConcern + "</strong>. " +
+        "अगले step में इसे consultation booking से connect करेंगे.";
+
+    });
+
+    document.getElementById("currentYear").textContent =
+      new Date().getFullYear();
+
+  </script>
+
+</body>
+</html>
