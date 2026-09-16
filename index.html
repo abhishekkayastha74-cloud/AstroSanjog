@@ -1,136 +1,504 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
-<meta charset="UTF-8">
-<title>AstroSanjog – Acharya Pandit Sanjay Ji</title>
-<meta name="description" content="AstroSanjog – Real Kundli, PDF, Rashifal & Astrology by Acharya Pandit Sanjay Ji">
-<meta name="keywords" content="Astrology, Kundli, Horoscope, Match Making, Pandit Sanjay Ji, AstroSanjog">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-:root{--gold:#f5c542;--bg:#0b0b0f;--card:#151515}
-*{box-sizing:border-box}
-body{margin:0;font-family:Segoe UI,sans-serif;background:var(--bg);color:#fff;scroll-behavior:smooth}
-header{position:sticky;top:0;background:#111;padding:14px 22px;display:flex;justify-content:space-between;align-items:center;z-index:999;box-shadow:0 0 12px #f5c54255}
-header h1{color:var(--gold);margin:0}
-nav a{color:#fff;text-decoration:none;margin:0 10px}
-nav a:hover{color:var(--gold)}
-section{padding:70px 20px;text-align:center}
-.hero{background:radial-gradient(circle at top,#222,#000)}
-.hero h2{font-size:42px;color:var(--gold)}
-.glow{text-shadow:0 0 15px var(--gold)}
-.form-box{max-width:420px;margin:20px auto;display:grid;gap:12px}
-.form-box input,.form-box select{padding:12px;border-radius:10px;border:none;background:#222;color:#fff}
-.form-box button{background:linear-gradient(45deg,var(--gold),#ff9800);border:none;padding:14px;border-radius:30px;font-weight:bold;cursor:pointer}
-.card{background:var(--card);padding:20px;border-radius:15px}
-.whatsapp{position:fixed;bottom:20px;right:20px;background:#25d366;color:#fff;padding:14px 20px;border-radius:50px;text-decoration:none;font-weight:bold}
-iframe{border-radius:15px}
-.reveal{opacity:0;transform:translateY(40px);transition:1s}
-.reveal.active{opacity:1;transform:none}
-</style>
+  <title>Acharya Pandit Sanjay Ji | Vedic Astrology Consultation</title>
+
+  <meta
+    name="description"
+    content="Acharya Pandit Sanjay Ji के साथ व्यक्तिगत Vedic Astrology consultation. Career, marriage, business, Kundli और remedies के लिए guidance."
+  >
+
+  <meta name="theme-color" content="#07111f">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
-<h1>AstroSanjog</h1>
-<nav>
-<a href="#home">Home</a>
-<a href="#kundli">Kundli</a>
-<a href="#rashifal">Rashifal</a>
-<a href="#admin">Admin</a>
-<a href="#contact">Contact</a>
-</nav>
-</header>
+  <a class="skip-link" href="#main-content">
+    मुख्य content पर जाएँ
+  </a>
 
-<section id="home" class="hero reveal">
-<h2 class="glow">AstroSanjog</h2>
-<p>All Astrology Work By <b>Acharya Pandit Sanjay Ji</b></p>
-</section>
+  <!-- TOP INFORMATION BAR -->
 
-<section id="kundli" class="reveal">
-<h2 class="glow">Real Kundli Generator</h2>
-<form class="form-box" onsubmit="generateKundli(event)">
-<input id="name" placeholder="Full Name" required>
-<input id="dob" type="date" required>
-<input id="tob" type="time" required>
-<input id="pob" placeholder="Place of Birth" required>
-<button>Generate Kundli</button>
-</form>
-<div id="kundliResult" class="card" style="display:none"></div>
-<button onclick="downloadPDF()">Download Kundli PDF</button>
-</section>
+  <div class="top-bar">
+    <div class="container top-bar-inner">
 
-<section id="rashifal" class="reveal">
-<h2 class="glow">Daily Rashifal</h2>
-<div id="rashiFeed" class="card">Loading Rashifal...</div>
-</section>
+      <p>
+        <span class="online-dot"></span>
+        Online Consultation Available
+      </p>
 
-<section id="admin" class="reveal">
-<h2 class="glow">Admin Panel</h2>
-<form class="form-box" onsubmit="adminLogin(event)">
-<input id="adminUser" placeholder="Username" required>
-<input id="adminPass" type="password" placeholder="Password" required>
-<button>Login</button>
-</form>
-<div id="adminArea" style="display:none" class="card">
-<h3>Welcome Admin</h3>
-<p>Here you can manage Rashifal, Kundli Leads & Appointments</p>
-</div>
-</section>
+      <p class="top-bar-right">
+        Hindi • Hinglish • Confidential
+      </p>
 
-<section id="contact" class="reveal">
-<h2 class="glow">Contact & Appointment</h2>
-<form class="form-box" onsubmit="sendApp(event)">
-<input id="cname" placeholder="Your Name" required>
-<input id="cphone" placeholder="Mobile Number" required>
-<input id="cmsg" placeholder="Message" required>
-<button>Book Appointment</button>
-</form>
-<p>📞 WhatsApp: 9929806534 / 8209991542</p>
-<iframe src="https://www.google.com/maps?q=jaipur&output=embed" width="90%" height="300"></iframe>
-</section>
+    </div>
+  </div>
 
-<a class="whatsapp" href="https://wa.me/919929806534" target="_blank">Chat on WhatsApp</a>
+  <!-- HEADER -->
 
-<script>
-function generateKundli(e){
-e.preventDefault();
-let html=`🔮 Kundli Generated<br>
-Name: ${name.value}<br>
-DOB: ${dob.value}<br>
-Time: ${tob.value}<br>
-Place: ${pob.value}<br><br>
-➡️ Planetary Chart will appear here via API`;
-kundliResult.innerHTML=html;
-kundliResult.style.display="block";
-}
+  <header class="site-header">
 
-function downloadPDF(){
-alert("PDF Feature Ready – API/Server Side Integration Needed");
-}
+    <nav class="container navbar" aria-label="Main Navigation">
 
-function adminLogin(e){
-e.preventDefault();
-if(adminUser.value==="admin" && adminPass.value==="1234"){
-adminArea.style.display="block";
-}else{alert("Invalid Login");}
-}
+      <a class="brand" href="index.html">
 
-function sendApp(e){
-e.preventDefault();
-let msg=`Appointment\nName:${cname.value}\nPhone:${cphone.value}\nMessage:${cmsg.value}`;
-window.open("https://wa.me/919929806534?text="+encodeURIComponent(msg));
-}
+        <span class="brand-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48">
+            <circle cx="24" cy="24" r="15"></circle>
+            <circle cx="24" cy="24" r="4"></circle>
 
-window.addEventListener("scroll",()=>{
-document.querySelectorAll(".reveal").forEach(el=>{
-if(el.getBoundingClientRect().top<window.innerHeight-100){el.classList.add("active")}
-});
-});
+            <path d="M24 3v9"></path>
+            <path d="M24 36v9"></path>
+            <path d="M3 24h9"></path>
+            <path d="M36 24h9"></path>
 
-document.getElementById("rashiFeed").innerHTML="♈ Aries: Good Day<br>♉ Taurus: Financial Growth<br>♊ Gemini: New Opportunities<br>♋ Cancer: Family Happiness";
-</script>
+            <path d="M9 9l7 7"></path>
+            <path d="M32 32l7 7"></path>
+            <path d="M39 9l-7 7"></path>
+            <path d="M16 32l-7 7"></path>
+          </svg>
+        </span>
 
-</body>
-</html>
+        <span class="brand-text">
+          <strong>आचार्य पंडित संजय जी</strong>
+          <small>Vedic Astrology • Jaipur</small>
+        </span>
+
+      </a>
+
+      <!-- DESKTOP MENU -->
+
+      <div class="desktop-menu">
+
+        <a class="active" href="index.html">Home</a>
+
+        <a href="consultation.html">Consultation</a>
+
+        <a href="reports.html">Reports</a>
+
+        <a href="courses.html">Courses</a>
+
+        <a href="blog.html">Blog</a>
+
+        <a href="about.html">About Us</a>
+
+        <a href="contact.html">Contact Us</a>
+
+        <a href="book-pooja.html">Book Pooja</a>
+
+        <details class="nav-dropdown">
+
+          <summary>Free Calculators</summary>
+
+          <div class="dropdown-menu">
+            <a href="kundli.html">Free Kundli</a>
+            <a href="kundli-matching.html">Kundli Matching</a>
+            <a href="mangal-dosha.html">Mangal Dosha</a>
+            <a href="numerology.html">Numerology</a>
+            <a href="panchang.html">Daily Panchang</a>
+          </div>
+
+        </details>
+
+      </div>
+
+      <a class="nav-button" href="consultation.html">
+        Book Consultation
+      </a>
+
+      <!-- MOBILE MENU BUTTON -->
+
+      <button
+        class="mobile-menu-button"
+        id="mobileMenuButton"
+        type="button"
+        aria-label="Menu खोलें"
+        aria-expanded="false"
+        aria-controls="mobileMenu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </nav>
+
+    <!-- MOBILE MENU -->
+
+    <div class="mobile-menu" id="mobileMenu">
+
+      <a href="index.html">Home</a>
+      <a href="consultation.html">Consultation</a>
+      <a href="reports.html">Reports</a>
+      <a href="courses.html">Courses</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="book-pooja.html">Book Pooja</a>
+      <a href="calculators.html">Free Calculators</a>
+
+      <a class="mobile-book-button" href="consultation.html">
+        Book Consultation
+      </a>
+
+    </div>
+
+  </header>
+
+  <main id="main-content">
+
+    <!-- HERO SECTION -->
+
+    <section class="hero-section">
+
+      <div class="hero-background"></div>
+
+      <div class="container hero-grid">
+
+        <div class="hero-content">
+
+          <span class="hero-label">
+            Personal Vedic Astrology Consultation
+          </span>
+
+          <h1>
+            जब सवाल बड़े हों, जवाब
+            <span>डर नहीं—दिशा</span>
+            देने चाहिए।
+          </h1>
+
+          <p class="hero-description">
+            Career, marriage, business और personal decisions के लिए
+            आपकी जन्म कुंडली पर आधारित स्पष्ट, practical और
+            confidential guidance।
+          </p>
+
+          <div class="hero-buttons">
+
+            <a class="primary-button" href="consultation.html">
+              Consultation Book करें
+              <span>→</span>
+            </a>
+
+            <a class="secondary-button" href="#services">
+              Services देखें
+            </a>
+
+          </div>
+
+          <div class="hero-points">
+
+            <span>✓ One-to-one consultation</span>
+            <span>✓ Hindi और Hinglish</span>
+            <span>✓ Confidential discussion</span>
+
+          </div>
+
+        </div>
+
+        <!-- TEMPORARY ASTROLOGY VISUAL -->
+
+        <div class="hero-visual" aria-label="Vedic astrology visual">
+
+          <div class="astrology-orbit orbit-large"></div>
+          <div class="astrology-orbit orbit-medium"></div>
+          <div class="astrology-orbit orbit-small"></div>
+
+          <div class="kundli-square">
+            <span>ॐ</span>
+          </div>
+
+          <span class="planet planet-one"></span>
+          <span class="planet planet-two"></span>
+          <span class="planet planet-three"></span>
+          <span class="planet planet-four"></span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- TRUST SECTION -->
+
+    <section class="trust-section">
+
+      <div class="container trust-grid">
+
+        <div class="trust-intro">
+          <small>TRADITION EXPLAINED CLEARLY</small>
+
+          <h2>
+            ज्योतिष को समझने योग्य और उपयोगी बनाना।
+          </h2>
+        </div>
+
+        <div class="trust-item">
+          <strong>15+</strong>
+          <span>Years of Experience</span>
+        </div>
+
+        <div class="trust-item">
+          <strong>2000+</strong>
+          <span>Client Consultations</span>
+        </div>
+
+        <div class="trust-item">
+          <strong>1:1</strong>
+          <span>Personal Guidance</span>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- SERVICES -->
+
+    <section class="section services-section" id="services">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <span class="section-label">Our Services</span>
+
+          <h2>
+            अपने सवाल के अनुसार सही guidance चुनें
+          </h2>
+
+          <p>
+            Generic prediction के बजाय आपकी situation और clear question
+            पर focused consultation।
+          </p>
+
+        </div>
+
+        <div class="services-grid">
+
+          <article class="service-card featured-card">
+
+            <span class="service-number">01</span>
+
+            <div class="service-icon">कु</div>
+
+            <h3>Complete Kundli Reading</h3>
+
+            <p>
+              आपकी birth chart के प्रमुख patterns, strengths,
+              pressure points और focus areas की structured reading।
+            </p>
+
+            <a href="consultation.html">
+              Consultation देखें →
+            </a>
+
+          </article>
+
+          <article class="service-card">
+
+            <span class="service-number">02</span>
+
+            <div class="service-icon">वि</div>
+
+            <h3>Marriage & Relationship</h3>
+
+            <p>
+              Compatibility, relationship patterns और सही timing
+              पर balanced discussion।
+            </p>
+
+            <a href="consultation.html">
+              Details देखें →
+            </a>
+
+          </article>
+
+          <article class="service-card">
+
+            <span class="service-number">03</span>
+
+            <div class="service-icon">का</div>
+
+            <h3>Career & Business</h3>
+
+            <p>
+              Job change, business growth, partnership और major
+              professional decisions पर guidance।
+            </p>
+
+            <a href="consultation.html">
+              Details देखें →
+            </a>
+
+          </article>
+
+          <article class="service-card">
+
+            <span class="service-number">04</span>
+
+            <div class="service-icon">द</div>
+
+            <h3>Dasha & Transit Review</h3>
+
+            <p>
+              वर्तमान दशा और ग्रह गोचर के important focus areas
+              को सरल भाषा में समझें।
+            </p>
+
+            <a href="reports.html">
+              Report देखें →
+            </a>
+
+          </article>
+
+          <article class="service-card featured-card">
+
+            <span class="service-number">05</span>
+
+            <div class="service-icon">उ</div>
+
+            <h3>Personal Remedy Plan</h3>
+
+            <p>
+              आपकी situation के अनुसार simple, safe और manageable
+              Vedic remedies।
+            </p>
+
+            <a href="consultation.html">
+              Guidance पाएँ →
+            </a>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- KUNDLI FORM -->
+
+    <section class="section kundli-section">
+
+      <div class="container kundli-grid">
+
+        <div class="kundli-content">
+
+          <span class="section-label light-label">
+            Prepare Your Birth Details
+          </span>
+
+          <h2>
+            अपनी Kundli consultation की तैयारी करें
+          </h2>
+
+          <p>
+            सही date, time और place से Kundli reading अधिक focused
+            होती है। नीचे अपनी basic details भरें।
+          </p>
+
+          <ul>
+            <li>✓ Date of Birth</li>
+            <li>✓ Accurate Birth Time</li>
+            <li>✓ Birth Place</li>
+            <li>✓ Main Consultation Question</li>
+          </ul>
+
+        </div>
+
+        <form class="kundli-form" id="kundliForm">
+
+          <div class="form-title">
+            <span>Free</span>
+            <h3>Birth Details Check</h3>
+          </div>
+
+          <div class="form-row">
+
+            <div class="form-group">
+              <label for="fullName">पूरा नाम</label>
+
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                placeholder="अपना नाम लिखें"
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="phone">WhatsApp Number</label>
+
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="10-digit mobile number"
+                required
+              >
+            </div>
+
+          </div>
+
+          <div class="form-row">
+
+            <div class="form-group">
+              <label for="birthDate">Date of Birth</label>
+
+              <input
+                type="date"
+                id="birthDate"
+                name="birthDate"
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="birthTime">Time of Birth</label>
+
+              <input
+                type="time"
+                id="birthTime"
+                name="birthTime"
+              >
+            </div>
+
+          </div>
+
+          <div class="form-group">
+
+            <label for="birthPlace">Birth Place</label>
+
+            <input
+              type="text"
+              id="birthPlace"
+              name="birthPlace"
+              placeholder="City, State"
+              required
+            >
+
+          </div>
+
+          <div class="form-group">
+
+            <label for="mainConcern">Main Concern</label>
+
+            <select id="mainConcern" name="mainConcern" required>
+
+              <option value="">अपना concern चुनें</option>
+              <option value="career">Career & Business</option>
+              <option value="marriage
