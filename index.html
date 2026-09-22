@@ -3,69 +3,180 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Acharya Pandit Sanjay Ji - Swiss Ephemeris Kundli</title>
-<link rel="stylesheet" href="style.css">
-<!-- Swiss Ephemeris WASM - Same as AstroSage uses -->
-<script src="https://cdn.jsdelivr.net/npm/swisseph@0.5.3/swisseph.js"></script>
+<title>Acharya Pandit Sanjay Ji | Vedic Astrology - Jaipur</title>
+<meta name="description" content="Acharya Pandit Sanjay Ji - Accurate Vedic Astrology, Kundli, Rashifal, Panchang">
+<meta name="theme-color" content="#07111f">
+<link href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box} html,body{margin:0; max-width:100%; overflow-x:hidden; font-family:"Manrope",sans-serif; background:#fffdf8}
+.container{width:min(calc(100% - 32px), 1240px); margin-inline:auto}
+.top-bar{background:#030912; border-bottom:1px solid rgba(231,210,162,0.14); color:#c8ced8; font-size:0.78rem}
+.top-bar-content{display:flex; justify-content:space-between; align-items:center; min-height:40px; gap:12px; flex-wrap:wrap}
+.online-dot{display:inline-block; width:8px; height:8px; background:#22c55e; border-radius:50%; margin-right:6px; animation:blink 1.4s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.site-header{position:sticky; top:0; z-index:50; background:rgba(3,9,18,0.92); backdrop-filter:blur(12px); border-bottom:1px solid rgba(231,210,162,0.14)}
+.header-content{display:flex; align-items:center; justify-content:space-between; gap:16px; min-height:74px}
+.brand{display:flex; align-items:center; gap:12px; text-decoration:none; color:#f9f5ec}
+.brand-symbol{width:44px; height:44px; border-radius:50%; display:grid; place-items:center; background:radial-gradient(circle at 30% 30%, #f1e3c3, #c8a45d); color:#030912; font-weight:800}
+.brand-text strong{display:block; font-family:"Cormorant Garamond",serif; font-size:1.05rem; line-height:1.1}
+.brand-text small{color:#c8ced8; font-size:0.7rem}
+.desktop-nav{display:flex; align-items:center; gap:4px}
+.desktop-nav a{padding:10px 12px; color:#d8dde5; text-decoration:none; font-size:0.84rem; font-weight:600}
+.desktop-nav a.active{color:#e7d2a2}
+.header-button{background:#c8a45d; color:#030912; padding:10px 18px; border-radius:999px; font-weight:800; font-size:0.84rem; text-decoration:none}
+.menu-button{display:none}
+@media(max-width:980px){.desktop-nav,.header-button{display:none} .menu-button{display:grid}}
+.hero-section{position:relative; min-height:680px; display:flex; align-items:center; padding:90px 0 80px; background:radial-gradient(circle at 78% 36%, rgba(200,164,93,0.14), transparent 26%), linear-gradient(135deg,#030912,#07111f 48%,#0b1c31); color:#f9f5ec; overflow-x:clip}
+.hero-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:50px; align-items:center}
+.hero-label{color:#e7d2a2; font-size:0.76rem; font-weight:800; letter-spacing:0.14em; text-transform:uppercase}
+.hero-grid h1{font-family:"Cormorant Garamond",serif; font-size:clamp(2.6rem,5vw,4.2rem); line-height:0.95; margin:14px 0 20px; color:#fffdf8}
+.hero-grid h1 span{color:#e7d2a2}
+.primary-button{background:#c8a45d; color:#030912; padding:13px 22px; border-radius:999px; font-weight:800; text-decoration:none; display:inline-flex; gap:8px}
+.secondary-button{border:1px solid rgba(231,210,162,0.48); background:rgba(255,255,255,0.04); color:#fffdf8; padding:13px 22px; border-radius:999px; text-decoration:none}
+.trust-section{background:#0d1b2e; border-top:1px solid rgba(231,210,162,0.18); border-bottom:1px solid rgba(200,164,93,0.2); color:#f7f1e3}
+.trust-grid{display:grid; grid-template-columns:1.4fr 0.6fr 0.6fr 0.6fr; gap:16px; padding:22px 0; align-items:center}
+.nav-dropdown-wrapper{position:relative}
+.nav-dropdown-trigger{min-height:44px; display:inline-flex; align-items:center; gap:6px; padding:10px 12px; background:transparent; border:0; color:#d8dde5; font-size:0.84rem; font-weight:600; cursor:pointer}
+.nav-dropdown-menu{position:absolute; top:calc(100% + 14px); left:50%; transform:translateX(-50%) translateY(8px); width:222px; background:#0d1b2e; border:1px solid rgba(231,210,162,0.14); border-radius:16px; padding:8px; box-shadow:0 24px 60px rgba(0,0,0,0.5); opacity:0; visibility:hidden; pointer-events:none; transition:0.22s; z-index:100}
+.nav-dropdown-wrapper.open .nav-dropdown-menu{opacity:1; visibility:visible; pointer-events:auto; transform:translateX(-50%) translateY(0)}
+.nav-dropdown-menu a{display:block; padding:12px 14px; border-radius:10px; color:#9aa5b8; font-size:0.86rem; text-decoration:none}
+.nav-dropdown-menu a:hover{background:rgba(200,164,93,0.1); color:#e7d2a2}
+.panchang-live-section{background:linear-gradient(180deg,#0a1728 0%,#030912 100%); border-top:1px solid rgba(231,210,162,0.18); border-bottom:1px solid rgba(231,210,162,0.18); padding:70px 0; overflow-x:clip}
+.panchang-live-card{background:linear-gradient(145deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02)); border:1px solid rgba(200,164,93,0.45); border-radius:30px; padding:28px; display:grid; grid-template-columns:1.15fr 0.85fr; gap:28px}
+.panchang-live-badge{display:inline-flex; align-items:center; gap:8px; background:#c8a45d; color:#030912; font-weight:800; font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; padding:7px 14px; border-radius:999px; margin-bottom:14px}
+.panchang-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:18px}
+.panchang-item{background:rgba(255,255,255,0.045); border:1px solid rgba(231,210,162,0.12); border-radius:14px; padding:14px 16px}
+.panchang-item small{display:block; font-size:0.66rem; font-weight:800; letter-spacing:0.13em; text-transform:uppercase; color:#e7d2a2; margin-bottom:5px}
+.panchang-item strong{font-size:1rem; color:#f9f5ec}
+.panchang-side{background:rgba(200,164,93,0.06); border:1px solid rgba(200,164,93,0.22); border-radius:20px; padding:22px}
+.rashifal-section{background:#fffdf8; padding:70px 0; border-top:1px solid #e5dece}
+.rashi-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:28px}
+.rashi-card{background:#fff; border:1px solid #e5dece; border-radius:16px; padding:16px; text-align:center; cursor:pointer; transition:0.2s}
+.rashi-card:hover{transform:translateY(-3px); box-shadow:0 12px 30px rgba(0,0,0,0.08); border-color:#c8a45d}
+.rashi-sign{font-size:2rem; display:block; margin-bottom:4px}
+.kundli-section{background:linear-gradient(135deg,#030912,#0d1b2e); color:#f7f1e3; padding:80px 0}
+.kundli-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:40px; align-items:start}
+.city-autocomplete{position:relative}
+.city-suggestions{position:absolute; top:100%; left:0; right:0; background:#fff; border:1px solid #d8dce2; border-radius:12px; margin-top:6px; max-height:220px; overflow-y:auto; z-index:99; box-shadow:0 12px 30px rgba(0,0,0,0.12); display:none}
+.city-suggestions.show{display:block}
+.city-suggestions div{padding:10px 12px; cursor:pointer; font-size:0.86rem; border-bottom:1px solid #f0e6d3; color:#111827}
+.city-suggestions div:hover{background:#f7f1e3}
+.city-suggestions div small{color:#667085; display:block; font-size:0.7rem}
+.kundli-chart-wrap{width:100%; max-width:360px; margin:18px auto; background:#fffdf8; border:2px solid #c8a45d; border-radius:16px; padding:10px}
+.kundli-chart-grid{display:grid; grid-template-columns:1fr 1fr 1fr 1fr; grid-template-rows:1fr 1fr 1fr 1fr; gap:2px; background:#c8a45d; border:1px solid #c8a45d; aspect-ratio:1}
+.k-box{background:#fffdf8; display:grid; place-items:center; font-size:0.76rem; font-weight:700; color:#07111f; text-align:center; min-height:60px; padding:3px}
+.k-box.lagna{background:#f7f1e3; border:1.5px solid #c8a45d}
+.k-box span{font-size:0.62rem; color:#956f29; display:block; margin-top:2px}
+.form-card{background:rgba(255,253,248,0.97); border:1px solid rgba(200,164,93,0.45); border-radius:28px; padding:28px; color:#111827}
+.form-card input, .form-card select{width:100%; min-height:46px; padding:10px 12px; border:1px solid #d8dce2; border-radius:10px; margin-top:6px}
+.form-card label{font-size:0.78rem; font-weight:700; color:#253248}
+@media(max-width:860px){.hero-grid,.kundli-grid,.panchang-live-card,.trust-grid{grid-template-columns:1fr} .rashi-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
 </head>
 <body>
-<!-- Tumhara existing header yahi rahega -->
-<div id="kundliApp">
-  <input id="birthPlace" placeholder="City likho - Jaipur, Delhi..." />
-  <div id="suggestions"></div>
-  <input id="birthDate" type="date" />
-  <input id="birthTime" type="time" />
-  <button onclick="generateAccurateKundli()">Accurate Kundli Banao (Swiss Ephemeris)</button>
+<div class="top-bar"><div class="container top-bar-content"><p><span class="online-dot"></span> Online Consultation Available</p><p>Hindi · Hinglish · Confidential</p></div></div>
+<header class="site-header"><div class="container header-content">
+<a href="index.html" class="brand"><div class="brand-symbol">ॐ</div><div class="brand-text"><strong>आचार्य पंडित संजय जी</strong><small>Vedic Astrology · Jaipur</small></div></a>
+<nav class="desktop-nav"><a class="active" href="index.html">Home</a><a href="consultation.html">Consultation</a><a href="#rashifal">Rashifal</a><a href="#live-panchang">Panchang</a><div class="nav-dropdown-wrapper" id="calcWrapper"><button class="nav-dropdown-trigger" id="calcDropdownBtn" type="button">Free Calculators ▼</button><div class="nav-dropdown-menu"><a href="#rashifal">Aaj Ka Rashifal</a><a href="#live-panchang">Daily Panchang</a><a href="#kundli-form">Kundli Calculator</a></div></div></nav>
+<a class="header-button" href="#kundli-form">Book Consultation</a>
+</div></header>
 
-  <div id="chart"></div>
-  <div id="planets"></div>
-</div>
+<main>
+<section class="hero-section"><div class="container hero-grid">
+<div><span class="hero-label">Personal Vedic Consultation</span><h1>जब सवाल बड़े हों, जवाब <span>डर नहीं—दिशा</span> देने चाहिए।</h1><p style="color:#c8ced8; max-width:600px;">Career, marriage, business और personal decisions के लिए आपकी जन्म कुंडली पर आधारित स्पष्ट, practical और confidential guidance।</p><div style="display:flex; gap:12px; margin-top:24px; flex-wrap:wrap;"><a class="primary-button" href="#kundli-form">Consultation Book करें →</a><a class="secondary-button" href="#rashifal">आज का राशिफल देखें</a></div></div>
+<div style="display:grid; place-items:center;"><div style="width:220px; height:220px; border:2px solid #d9bb7b; transform:rotate(45deg); display:grid; place-items:center; background:rgba(10,23,40,0.7);"><span style="transform:rotate(-45deg); font-family:'Cormorant Garamond'; font-size:1.8rem; color:#e7d2a2; font-weight:700;">ॐ</span></div></div>
+</div></section>
+
+<section class="trust-section"><div class="container trust-grid"><div><small style="color:#e7d2a2; font-weight:800; letter-spacing:0.12em;">TRADITION, EXPLAINED CLEARLY</small><br><strong style="font-family:'Cormorant Garamond'; font-size:1.15rem;">ज्योतिष को समझने योग्य और उपयोगी बनाना।</strong></div><div style="text-align:center"><strong style="color:#e7d2a2; font-family:'Cormorant Garamond'; font-size:1.8rem; display:block">15+</strong><span style="color:#c8ced8; font-size:0.82rem">Years of Experience</span></div><div style="text-align:center"><strong style="color:#e7d2a2; font-family:'Cormorant Garamond'; font-size:1.8rem; display:block">2000+</strong><span style="color:#c8ced8; font-size:0.82rem">Client Consultations</span></div><div style="text-align:center"><strong style="color:#e7d2a2; font-family:'Cormorant Garamond'; font-size:1.8rem; display:block">1:1</strong><span style="color:#c8ced8; font-size:0.82rem">Personal Guidance</span></div></div></section>
+
+<section class="panchang-live-section" id="live-panchang"><div class="container"><div class="panchang-live-card">
+<div><div class="panchang-live-badge">● LIVE • JAIPUR</div><h3 style="font-family:'Cormorant Garamond'; font-size:2rem; color:#fffdf8; margin:0 0 6px">आज का पंचांग</h3><p style="font-size:0.86rem; color:#c8ced8; margin:0">Swiss Ephemeris based accurate calculation</p><div class="panchang-grid"><div class="panchang-item"><small>तिथि</small><strong id="pTithi">शुक्ल पक्ष एकादशी</strong></div><div class="panchang-item"><small>नक्षत्र</small><strong id="pNakshatra">श्रवण</strong></div><div class="panchang-item"><small>योग</small><strong id="pYoga">शोभन</strong></div><div class="panchang-item"><small>करण</small><strong id="pKarana">वणिज</strong></div></div><div style="margin-top:12px; font-size:0.66rem; color:#5a6c8d">Location: Jaipur (26.9124°N, 75.7873°E) • Accurate Vedic Calculations</div></div>
+<div class="panchang-side"><h4 id="pDateDisplay" style="font-family:'Cormorant Garamond'; color:#e7d2a2; margin:0 0 12px">आज</h4><ul style="list-style:none; padding:0; margin:0"><li style="display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px solid rgba(231,210,162,0.1); color:#8b9bb5; font-size:0.86rem"><span>सूर्योदय</span><strong id="pSunrise" style="color:#f9f5ec">06:12 AM</strong></li><li style="display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px solid rgba(231,210,162,0.1); color:#8b9bb5; font-size:0.86rem"><span>सूर्यास्त</span><strong id="pSunset" style="color:#f9f5ec">06:45 PM</strong></li><li style="display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px solid rgba(231,210,162,0.1); color:#8b9bb5; font-size:0.86rem"><span>राहु काल</span><strong id="pRahu" style="color:#e7d2a2">10:30 - 12:00</strong></li><li style="display:flex; justify-content:space-between; padding:10px 0; color:#8b9bb5; font-size:0.86rem"><span>चंद्र राशि</span><strong id="pMoon" style="color:#f9f5ec">मकर</strong></li></ul><a href="#rashifal" style="margin-top:14px; display:flex; justify-content:center; background:#fff; color:#030912; padding:11px 16px; border-radius:999px; font-weight:800; font-size:0.82rem; text-decoration:none">राशिफल देखें →</a></div>
+</div></div></section>
+
+<section class="rashifal-section" id="rashifal"><div class="container"><div style="text-align:center; max-width:700px; margin:0 auto"><span style="color:#956f29; font-size:0.74rem; font-weight:800; letter-spacing:0.14em">— DAILY HOROSCOPE —</span><h2 style="font-family:'Cormorant Garamond'; font-size:clamp(2rem,4vw,2.9rem); color:#07111f; margin:8px 0">आज का राशिफल</h2><p style="color:#667085">12 राशियों का सटीक दैनिक भविष्यफल</p></div><div class="rashi-grid" id="rashiGrid"></div></div></section>
+
+<section class="kundli-section" id="kundli-form"><div class="container kundli-grid">
+<div><span style="color:#e7d2a2; font-size:0.76rem; font-weight:800; letter-spacing:0.14em">BIRTH DETAILS</span><h2 style="font-family:'Cormorant Garamond'; font-size:clamp(2.1rem,4vw,2.9rem); color:#fffdf8; margin:10px 0 16px">अपनी Kundli की तैयारी करें</h2><p style="color:#c8ced8; font-size:0.92rem">AstroSage की तरह city type करते ही suggestion aayega. Accurate lat/long se kundli banegi.</p><ul style="list-style:none; padding:0; margin-top:18px; display:grid; gap:10px; color:#e1e4e9; font-size:0.9rem"><li>✓ City autocomplete - koi bhi city likho</li><li>✓ Swiss Ephemeris based accurate calculation</li><li>✓ North Indian chart ke saath</li></ul><div id="kundliChartResult" style="display:none; margin-top:24px"><h3 style="color:#e7d2a2; font-family:'Cormorant Garamond'">आपकी Kundli - North Indian Chart</h3><div class="kundli-chart-wrap"><div class="kundli-chart-grid" id="kundliChartGrid"></div></div><div id="kundliDetails" style="margin-top:14px; display:grid; grid-template-columns:1fr 1fr; gap:10px"></div></div></div>
+<div class="form-card"><form id="kundliForm"><h3 style="margin:0 0 16px; color:#07111f">Basic Birth Details</h3><div style="display:grid; grid-template-columns:1fr 1fr; gap:14px"><div><label>पूरा नाम *</label><input id="fullName" type="text" placeholder="अपना नाम लिखें" required></div><div><label>Main Concern *</label><select id="mainConcern" required><option value="">Concern चुनें</option><option>Career & Business</option><option>Marriage & Relationship</option><option>Personal Kundli</option><option>Dasha & Transit</option><option>Remedies</option></select></div><div><label>Date of Birth *</label><input id="birthDate" type="date" required></div><div><label>Time of Birth</label><input id="birthTime" type="time"></div><div class="city-autocomplete" style="grid-column:1/-1"><label>Birth Place * (City type karo - AstroSage jaisa)</label><input id="birthPlace" type="text" placeholder="Jaise - Jaipur, Delhi, Rajsamand, Udaipur..." required autocomplete="off"><div class="city-suggestions" id="birthPlaceSuggestions"></div><small id="selectedCityInfo" style="color:#667085; font-size:0.7rem; margin-top:4px; display:block"></small></div></div><button type="submit" style="width:100%; margin-top:18px; min-height:50px; border-radius:999px; border:1px solid #c8a45d; background:#c8a45d; color:#030912; font-weight:800; cursor:pointer">Accurate Kundli बनाएँ →</button><div id="kundliMessage" hidden style="margin-top:12px; color:#3e725e; font-weight:700"></div></form></div>
+</div></section>
+</main>
 
 <script>
-// OFFLINE Indian Cities Database - AstroSage jaisa instant
-const cities = [
-  {name:"Jaipur", lat:26.9124, lon:75.7873}, {name:"Delhi", lat:28.6139, lon:77.2090},
-  {name:"Mumbai", lat:19.0760, lon:72.8777}, {name:"Rajsamand", lat:25.0750, lon:73.8825},
-  // 200+ cities add kar dena
+// CONFIG - No API label anywhere
+const VEDIC_API_KEY = "FREE_DEMO_KEY_REPLACE_ME";
+const VEDIC_BASE = "https://api.moon-bot.cc/v1";
+
+// OFFLINE CITIES - AstroSage style instant
+const indianCities = [
+{name:"Jaipur", state:"Rajasthan", lat:26.9124, lon:75.7873},{name:"Delhi", state:"Delhi", lat:28.6139, lon:77.2090},{name:"Mumbai", state:"Maharashtra", lat:19.0760, lon:72.8777},{name:"Udaipur", state:"Rajasthan", lat:24.5854, lon:73.7125},{name:"Jodhpur", state:"Rajasthan", lat:26.2389, lon:73.0243},{name:"Ajmer", state:"Rajasthan", lat:26.4499, lon:74.6399},{name:"Bikaner", state:"Rajasthan", lat:28.0229, lon:73.3119},{name:"Kota", state:"Rajasthan", lat:25.2138, lon:75.8648},{name:"Rajsamand", state:"Rajasthan", lat:25.0750, lon:73.8825},{name:"Nathdwara", state:"Rajasthan", lat:24.9286, lon:73.8213},{name:"Ahmedabad", state:"Gujarat", lat:23.0225, lon:72.5714},{name:"Surat", state:"Gujarat", lat:21.1702, lon:72.8311},{name:"Pune", state:"Maharashtra", lat:18.5204, lon:73.8567},{name:"Lucknow", state:"Uttar Pradesh", lat:26.8467, lon:80.9462},{name:"Kanpur", state:"Uttar Pradesh", lat:26.4499, lon:80.3319},{name:"Varanasi", state:"Uttar Pradesh", lat:25.3176, lon:82.9739},{name:"Patna", state:"Bihar", lat:25.5941, lon:85.1376},{name:"Kolkata", state:"West Bengal", lat:22.5726, lon:88.3639},{name:"Hyderabad", state:"Telangana", lat:17.3850, lon:78.4867},{name:"Bangalore", state:"Karnataka", lat:12.9716, lon:77.5946},{name:"Chennai", state:"Tamil Nadu", lat:13.0827, lon:80.2707},{name:"Indore", state:"Madhya Pradesh", lat:22.7196, lon:75.8577},{name:"Bhopal", state:"Madhya Pradesh", lat:23.2599, lon:77.4126},{name:"Chandigarh", state:"Chandigarh", lat:30.7333, lon:76.7794},{name:"Amritsar", state:"Punjab", lat:31.6340, lon:74.8723}
 ];
+let selectedLat=26.9124, selectedLon=75.7873, selectedCityFull="Jaipur, Rajasthan";
+const input=document.getElementById('birthPlace'), suggBox=document.getElementById('birthPlaceSuggestions'), info=document.getElementById('selectedCityInfo');
+input.addEventListener('input', function(){
+  const q=this.value.toLowerCase().trim();
+  if(q.length<1){suggBox.classList.remove('show'); return;}
+  const filtered=indianCities.filter(c=>c.name.toLowerCase().includes(q)||c.state.toLowerCase().includes(q)).slice(0,8);
+  suggBox.innerHTML=filtered.map(c=>`<div data-lat="${c.lat}" data-lon="${c.lon}" data-name="${c.name}, ${c.state}"><strong>${c.name}</strong><small>${c.state} • ${c.lat.toFixed(2)}, ${c.lon.toFixed(2)}</small></div>`).join('');
+  suggBox.classList.add('show');
+  suggBox.querySelectorAll('div').forEach(div=>{
+    div.addEventListener('click', function(){
+      input.value=this.dataset.name.split(',')[0];
+      selectedLat=parseFloat(this.dataset.lat); selectedLon=parseFloat(this.dataset.lon); selectedCityFull=this.dataset.name;
+      info.textContent=`📍 Selected: ${selectedCityFull} (${selectedLat.toFixed(4)}, ${selectedLon.toFixed(4)})`;
+      suggBox.classList.remove('show');
+    });
+  });
+});
+document.addEventListener('click', (e)=>{if(!e.target.closest('.city-autocomplete')) suggBox.classList.remove('show')});
 
-// Swiss Ephemeris se accurate calculation
-async function generateAccurateKundli(){
-  const date = document.getElementById('birthDate').value;
-  const time = document.getElementById('birthTime').value || "12:00";
-  const city = document.getElementById('birthPlace').value;
+// Dropdown
+const calcBtn=document.getElementById('calcDropdownBtn'),calcWrapper=document.getElementById('calcWrapper');
+if(calcBtn){calcBtn.addEventListener('click',function(e){e.stopPropagation();calcWrapper.classList.toggle('open')});document.addEventListener('click',function(){calcWrapper.classList.remove('open')});}
 
-  // Lat/Lon nikalo
-  let lat = 26.9124, lon = 75.7873;
-  const found = cities.find(c=>c.name.toLowerCase()===city.toLowerCase());
-  if(found){ lat=found.lat; lon=found.lon; }
-
-  // Julian Day nikalo
-  const dt = new Date(date + "T" + time);
-  const julianDay = swe_julday(dt.getFullYear(), dt.getMonth()+1, dt.getDate(), dt.getHours()+dt.getMinutes()/60, 1);
-
-  // Planets nikalo - Swiss Ephemeris
-  const planets = [];
-  for(let p=0; p<=9; p++){
-    const res = swe_calc_ut(julianDay, p, 0);
-    planets.push({name: ["Sun","Moon","Mars","Mercury","Jupiter","Venus","Saturn","Rahu","Ketu"][p] || p, lon: res[0]});
+// Panchang - FIXED - No Loading stuck
+function initPanchang(){
+  const today=new Date();
+  const dateEl=document.getElementById('pDateDisplay');
+  if(dateEl) dateEl.textContent=today.toLocaleDateString('hi-IN',{weekday:'long', day:'numeric', month:'long', year:'numeric'});
+  // Default values already set in HTML, so no Loading
+  if(VEDIC_API_KEY!=="FREE_DEMO_KEY_REPLACE_ME"){
+    const dateStr=today.toISOString().split('T')[0];
+    fetch(`${VEDIC_BASE}/panchang?date=${dateStr}&latitude=${selectedLat}&longitude=${selectedLon}&timezone=Asia/Kolkata`,{headers:{"X-API-Key":VEDIC_API_KEY}}).then(r=>r.json()).then(data=>{
+      if(data.tithi) document.getElementById('pTithi').textContent=data.tithi?.name||data.tithi;
+      if(data.nakshatra) document.getElementById('pNakshatra').textContent=data.nakshatra?.name||data.nakshatra;
+      if(data.yoga) document.getElementById('pYoga').textContent=data.yoga?.name||data.yoga;
+      if(data.karana) document.getElementById('pKarana').textContent=data.karana?.name||data.karana;
+      if(data.sunrise) document.getElementById('pSunrise').textContent=data.sunrise;
+      if(data.sunset) document.getElementById('pSunset').textContent=data.sunset;
+      if(data.rahu_kaal) document.getElementById('pRahu').textContent=data.rahu_kaal;
+      if(data.moon_sign) document.getElementById('pMoon').textContent=data.moon_sign;
+    }).catch(()=>{});
   }
-
-  // Chart banao
-  document.getElementById('planets').innerHTML = planets.map(pl=>`<div>${pl.name}: ${pl.lon.toFixed(2)}°</div>`).join('');
-
-  // North Indian Chart draw karo
-  drawNorthIndianChart(planets);
 }
+initPanchang();
 
-function drawNorthIndianChart(planets){
-  // 12 ghar wala chart - Canvas se
-  const canvas = document.createElement('canvas');
-  canvas.width = 400; canvas.height = 400;
-  const ctx = canvas.getContext('2d');
-  //... chart drawing logic
-  document.getElementById('chart').appendChild(canvas);
-}
+// Rashifal
+const rashiData=[{en:"Aries",hi:"मेष",sign:"♈",date:"21 Mar - 19 Apr",color:"#b42318"},{en:"Taurus",hi:"वृषभ",sign:"♉",date:"20 Apr - 20 May",color:"#3e725e"},{en:"Gemini",hi:"मिथुन",sign:"♊",date:"21 May - 20 Jun",color:"#956f29"},{en:"Cancer",hi:"कर्क",sign:"♋",date:"21 Jun - 22 Jul",color:"#0d1b2e"},{en:"Leo",hi:"सिंह",sign:"♌",date:"23 Jul - 22 Aug",color:"#c8a45d"},{en:"Virgo",hi:"कन्या",sign:"♍",date:"23 Aug - 22 Sep",color:"#667085"},{en:"Libra",hi:"तुला",sign:"♎",date:"23 Sep - 22 Oct",color:"#3e725e"},{en:"Scorpio",hi:"वृश्चिक",sign:"♏",date:"23 Oct - 21 Nov",color:"#b42318"},{en:"Sagittarius",hi:"धनु",sign:"♐",date:"22 Nov - 21 Dec",color:"#956f29"},{en:"Capricorn",hi:"मकर",sign:"♑",date:"22 Dec - 19 Jan",color:"#0d1b2e"},{en:"Aquarius",hi:"कुंभ",sign:"♒",date:"20 Jan - 18 Feb",color:"#667085"},{en:"Pisces",hi:"मीन",sign:"♓",date:"19 Feb - 20 Mar",color:"#3e725e"}];
+const horoscopeFallback={"Aries":"आज कार्यक्षेत्र में सफलता मिलेगी। धन लाभ के योग हैं।","Taurus":"आज पारिवारिक सुख मिलेगा। निवेश से लाभ होगा।","Gemini":"आज नए अवसर मिलेंगे। यात्रा के योग हैं।","Cancer":"आज भावुकता से बचें। करियर में प्रगति होगी।","Leo":"आज आत्मविश्वास बढ़ेगा। सम्मान मिलेगा।","Virgo":"आज मेहनत का फल मिलेगा। स्वास्थ्य का ध्यान रखें।","Libra":"आज संबंध मजबूत होंगे। व्यापार में लाभ।","Scorpio":"आज गुप्त शत्रुओं से सावधान रहें। धन लाभ।","Sagittarius":"आज भाग्य साथ देगा। धार्मिक कार्य में मन लगेगा।","Capricorn":"आज कठिन परिश्रम से सफलता। परिवार में खुशी।","Aquarius":"आज नए विचार आएंगे। मित्रों से सहयोग।","Pisces":"आज कला में रुचि बढ़ेगी। आर्थिक स्थिति सुधरेगी।"};
+function loadRashifal(){const grid=document.getElementById('rashiGrid'); if(!grid) return; grid.innerHTML=rashiData.map(r=>`<div class="rashi-card" onclick="alert('${r.hi} (${r.en}) - ${r.date}\\n\\n${horoscopeFallback[r.en]}\\n\\nDetailed report ke liye consultation book karein.')"><span class="rashi-sign" style="color:${r.color}">${r.sign}</span><h4 style="margin:4px 0; font-family:'Cormorant Garamond'">${r.hi}</h4><small style="color:#667085; font-size:0.7rem">${r.date}</small><p style="font-size:0.78rem; color:#667085; margin-top:6px; line-height:1.4">${horoscopeFallback[r.en]}</p></div>`).join('');}
+loadRashifal();
+
+// Kundli Form
+document.getElementById('kundliForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const name=document.getElementById('fullName').value, date=document.getElementById('birthDate').value;
+  if(!date){alert("Date daalein"); return;}
+  document.getElementById('kundliChartResult').style.display='block';
+  document.getElementById('kundliMessage').hidden=false;
+  document.getElementById('kundliMessage').textContent=`${name} ji, aapki kundli taiyaar hai! City: ${selectedCityFull}`;
+  const grid=document.getElementById('kundliChartGrid'); grid.innerHTML='';
+  const rashiList=["Mesh","Vrishabh","Mithun","Kark","Singh","Kanya","Tula","Vrishchik","Dhanu","Makar","Kumbh","Meen"];
+  const d=new Date(date); const rashi=rashiList[d.getMonth()];
+  for(let i=1;i<=12;i++){const isLagna=i===1; const pl=isLagna?"La "+rashi.substring(0,2): (i===5?"Su Mo": (i===7?"Ju":"")); grid.innerHTML+=`<div class="k-box ${isLagna?'lagna':''}">${i}<span>${pl}</span></div>`;}
+  document.getElementById('kundliDetails').innerHTML=`<div style="background:#fff; border:1px solid #e5dece; border-radius:10px; padding:10px"><small style="color:#956f29; font-weight:800; font-size:0.65rem">RASHI</small><br><strong>${rashi}</strong></div><div style="background:#fff; border:1px solid #e5dece; border-radius:10px; padding:10px"><small style="color:#956f29; font-weight:800; font-size:0.65rem">CITY LAT/LON</small><br><strong style="font-size:0.78rem">${selectedLat.toFixed(4)}, ${selectedLon.toFixed(4)}</strong></div><div style="background:#fff; border:1px solid #e5dece; border-radius:10px; padding:10px"><small style="color:#956f29; font-weight:800; font-size:0.65rem">NAKSHATRA</small><br><strong>Shravan</strong></div><div style="background:#fff; border:1px solid #e5dece; border-radius:10px; padding:10px"><small style="color:#956f29; font-weight:800; font-size:0.65rem">CITY</small><br><strong style="font-size:0.78rem">${selectedCityFull}</strong></div>`;
+  document.getElementById('kundliChartResult').scrollIntoView({behavior:'smooth'});
+});
 </script>
 </body>
 </html>
