@@ -10,42 +10,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* LIVE PANCHANG WIDGET - Added for public-apis integration */
-    .panchang-live-section { background: linear-gradient(180deg, #0a1a33 0%, #07111f 100%); padding: 60px 0; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); }
-    .panchang-live-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 28px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 24px; backdrop-filter: blur(10px); }
-    .panchang-live-card h3 { font-family: 'Anek Devanagari', sans-serif; font-size: 28px; color: #fff; margin: 0 0 10px 0; }
-    .panchang-live-card .live-badge { display: inline-flex; align-items: center; gap: 8px; background: #f59e0b; color: #07111f; font-family: Manrope; font-weight: 700; font-size: 11px; letter-spacing: 1px; padding: 6px 12px; border-radius: 100px; margin-bottom: 16px; }
-    .panchang-live-card .live-badge i { width: 6px; height: 6px; background: #07111f; border-radius: 50%; display: inline-block; animation: blink 1.5s infinite; }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
-    .panchang-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 18px; }
-    .panchang-item { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 14px 16px; }
-    .panchang-item small { display: block; font-family: Manrope; font-size: 11px; letter-spacing: 1px; color: #8b9bb5; text-transform: uppercase; margin-bottom: 4px; }
-    .panchang-item strong { font-family: 'Anek Devanagari'; font-size: 16px; color: #fff; font-weight: 600; }
-    .panchang-right { background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.18); border-radius: 16px; padding: 20px; }
-    .panchang-right h4 { font-family: Cormorant Garamond; font-size: 20px; color: #fbbf24; margin: 0 0 12px 0; }
-    .panchang-right ul { list-style: none; padding: 0; margin: 0; }
-    .panchang-right ul li { font-family: Manrope; font-size: 14px; color: #cbd5e1; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; }
-    .panchang-right ul li:last-child { border: 0; }
-    .panchang-right .cta-small { margin-top: 16px; display: inline-flex; background: #fff; color: #07111f; padding: 10px 18px; border-radius: 100px; font-family: Manrope; font-weight: 700; font-size: 13px; text-decoration: none; }
-    .panchang-loader { color: #8b9bb5; font-family: Manrope; font-size: 14px; }
-    @media(max-width: 800px){ .panchang-live-card{grid-template-columns:1fr} .panchang-grid{grid-template-columns:1fr 1fr} }
-  </style>
 </head>
 <body>
   <a class="skip-link" href="#main-content">मुख्य भाग पर जाएँ</a>
-  <div class="top-bar">
-    <div class="container top-bar-content">
-      <p><span class="online-dot"></span> Online Consultation Available</p>
-      <p class="top-bar-right">Hindi · Hinglish · Confidential</p>
-    </div>
-  </div>
+  <div class="top-bar"><div class="container top-bar-content"><p><span class="online-dot"></span> Online Consultation Available</p><p class="top-bar-right">Hindi · Hinglish · Confidential</p></div></div>
   <header class="site-header">
     <div class="container header-content">
-      <a href="index.html" class="brand">
-        <div class="brand-symbol" aria-hidden="true"><span>ॐ</span></div>
-        <div class="brand-text"><strong>आचार्य पंडित संजय जी</strong><small>Vedic Astrology · Jaipur</small></div>
-      </a>
+      <a href="index.html" class="brand"><div class="brand-symbol" aria-hidden="true"><span>ॐ</span></div><div class="brand-text"><strong>आचार्य पंडित संजय जी</strong><small>Vedic Astrology · Jaipur</small></div></a>
+
+      <!-- DESKTOP NAVIGATION -->
       <nav class="desktop-nav" aria-label="Main navigation">
         <a class="active" href="index.html">Home</a>
         <a href="consultation.html">Consultation</a>
@@ -55,30 +28,28 @@
         <a href="about.html">About Us</a>
         <a href="contact.html">Contact Us</a>
         <a href="book-pooja.html">Book Pooja</a>
-        <details class="nav-dropdown">
-          <summary>Free Calculators</summary>
-          <div class="dropdown-menu">
+
+        <!-- FREE CALCULATORS DROPDOWN - Screenshot Exact -->
+        <div class="nav-dropdown-wrapper" id="calcWrapper">
+          <button class="nav-dropdown-trigger" id="calcDropdownBtn" type="button" aria-expanded="false" aria-controls="calcDropdown">
+            Free Calculators <span class="arrow">▼</span>
+          </button>
+          <div class="nav-dropdown-menu" id="calcDropdown">
             <a href="kundli-calculator.html">Kundli Calculator</a>
             <a href="kundli-matching.html">Kundli Matching</a>
             <a href="mangal-dosha.html">Mangal Dosha</a>
             <a href="numerology.html">Numerology</a>
-            <a href="panchang.html">Daily Panchang</a>
+            <a href="panchang.html" class="active-link">Daily Panchang</a>
           </div>
-        </details>
+        </div>
       </nav>
+
       <a class="header-button" href="consultation.html">Book Consultation</a>
       <button class="menu-button" id="menuButton" type="button" aria-label="Menu खोलें" aria-controls="mobileMenu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
     <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" aria-hidden="true">
-      <a href="index.html">Home</a>
-      <a href="consultation.html">Consultation</a>
-      <a href="reports.html">Reports</a>
-      <a href="courses.html">Courses</a>
-      <a href="blog.html">Blog</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html">Contact Us</a>
-      <a href="book-pooja.html">Book Pooja</a>
-      <a href="calculators.html">Free Calculators</a>
+      <a href="index.html">Home</a><a href="consultation.html">Consultation</a><a href="reports.html">Reports</a><a href="courses.html">Courses</a><a href="blog.html">Blog</a><a href="about.html">About Us</a><a href="contact.html">Contact Us</a><a href="book-pooja.html">Book Pooja</a>
+      <a href="kundli-calculator.html">Kundli Calculator</a><a href="kundli-matching.html">Kundli Matching</a><a href="mangal-dosha.html">Mangal Dosha</a><a href="numerology.html">Numerology</a><a href="panchang.html">Daily Panchang</a>
       <a class="mobile-cta" href="consultation.html">Book Consultation</a>
     </nav>
   </header>
@@ -91,56 +62,42 @@
           <span class="hero-label">Personal Vedic Consultation</span>
           <h1>जब सवाल बड़े हों, जवाब <span>डर नहीं—दिशा</span> देने चाहिए।</h1>
           <p class="hero-description">Career, marriage, business और personal decisions के लिए आपकी जन्म कुंडली पर आधारित स्पष्ट, practical और confidential guidance।</p>
-          <div class="hero-buttons">
-            <a class="primary-button" href="consultation.html">Consultation Book करें <span aria-hidden="true">→</span></a>
-            <a class="secondary-button" href="#services">Services देखें</a>
-          </div>
+          <div class="hero-buttons"><a class="primary-button" href="consultation.html">Consultation Book करें <span aria-hidden="true">→</span></a><a class="secondary-button" href="#live-panchang">आज का पंचांग देखें</a></div>
           <div class="hero-features"><span>✓ One-to-one discussion</span><span>✓ Hindi और Hinglish</span><span>✓ Confidential guidance</span></div>
         </div>
-        <div class="hero-visual" aria-hidden="true">
-          <div class="orbit orbit-large"></div><div class="orbit orbit-medium"></div><div class="orbit orbit-small"></div>
-          <div class="kundli-square"><span>ॐ</span></div>
-          <span class="planet planet-one"></span><span class="planet planet-two"></span><span class="planet planet-three"></span><span class="planet planet-four"></span>
-        </div>
+        <div class="hero-visual" aria-hidden="true"><div class="orbit orbit-large"></div><div class="orbit orbit-medium"></div><div class="orbit orbit-small"></div><div class="kundli-square"><span>ॐ</span></div><span class="planet planet-one"></span><span class="planet planet-two"></span><span class="planet planet-three"></span><span class="planet planet-four"></span></div>
       </div>
     </section>
 
-    <section class="trust-section">
-      <div class="container trust-grid">
-        <div class="trust-intro"><small>TRADITION, EXPLAINED CLEARLY</small><strong>ज्योतिष को समझने योग्य और उपयोगी बनाना।</strong></div>
-        <div class="trust-item"><strong>15+</strong><span>Years of Experience</span></div>
-        <div class="trust-item"><strong>2000+</strong><span>Client Consultations</span></div>
-        <div class="trust-item"><strong>1:1</strong><span>Personal Guidance</span></div>
-      </div>
-    </section>
+    <section class="trust-section"><div class="container trust-grid"><div class="trust-intro"><small>TRADITION, EXPLAINED CLEARLY</small><strong>ज्योतिष को समझने योग्य और उपयोगी बनाना।</strong></div><div class="trust-item"><strong>15+</strong><span>Years of Experience</span></div><div class="trust-item"><strong>2000+</strong><span>Client Consultations</span></div><div class="trust-item"><strong>1:1</strong><span>Personal Guidance</span></div></div></section>
 
-    <!-- NEW: LIVE PANCHANG SECTION - public-apis/public-apis integration -->
+    <!-- LIVE PANCHANG - public-apis integration -->
     <section class="section panchang-live-section" id="live-panchang">
       <div class="container">
         <div class="panchang-live-card">
           <div>
-            <div class="live-badge"><i></i> LIVE FROM API • JAIPUR</div>
-            <h3>आज का पंचांग - Live</h3>
-            <p style="font-family:Manrope; color:#8b9bb5; font-size:14px; margin:0;">PanchangaAPI (public-apis) से सीधा जुड़ा हुआ। Roz automatic update होता है।</p>
-            <div class="panchang-grid" id="panchangGrid">
-              <div class="panchang-item"><small>तिथि</small><strong id="pTithi" class="panchang-loader">Loading...</strong></div>
-              <div class="panchang-item"><small>नक्षत्र</small><strong id="pNakshatra" class="panchang-loader">Loading...</strong></div>
-              <div class="panchang-item"><small>योग</small><strong id="pYoga" class="panchang-loader">Loading...</strong></div>
-              <div class="panchang-item"><small>करण</small><strong id="pKarana" class="panchang-loader">Loading...</strong></div>
+            <div class="panchang-live-badge"><i></i> LIVE • JAIPUR • public-apis</div>
+            <h3>आज का पंचांग - Live API</h3>
+            <p class="panchang-live-sub">PanchangaAPI (public-apis/public-apis repo) से सीधा जुड़ा हुआ। हर दिन automatic update।</p>
+            <div class="panchang-grid">
+              <div class="panchang-item"><small>तिथि</small><strong id="pTithi" class="loading">Loading...</strong></div>
+              <div class="panchang-item"><small>नक्षत्र</small><strong id="pNakshatra" class="loading">Loading...</strong></div>
+              <div class="panchang-item"><small>योग</small><strong id="pYoga" class="loading">Loading...</strong></div>
+              <div class="panchang-item"><small>करण</small><strong id="pKarana" class="loading">Loading...</strong></div>
             </div>
-            <p style="font-family:Manrope; font-size:11px; color:#5a6c8d; margin-top:14px;">Location: Jaipur (26.9124°N, 75.7873°E) | Source: public-apis/public-apis → PanchangaAPI</p>
+            <div class="panchang-meta">Location: Jaipur (26.9124°N, 75.7873°E) | API: api.moon-bot.cc (listed in public-apis)</div>
           </div>
-          <div class="panchang-right">
-            <h4 id="pDateDisplay">आज - Loading</h4>
+          <div class="panchang-side">
+            <h4 id="pDateDisplay">आज</h4>
             <ul>
-              <li><span>सूर्योदय</span> <strong id="pSunrise">--:--</strong></li>
-              <li><span>सूर्यास्त</span> <strong id="pSunset">--:--</strong></li>
-              <li><span>राहु काल</span> <strong id="pRahu" style="color:#fbbf24">--:--</strong></li>
-              <li><span>अभिजीत मुहूर्त</span> <strong id="pAbhijit">--:--</strong></li>
-              <li><span>चंद्रमा</span> <strong id="pMoon">--</strong></li>
+              <li><span>सूर्योदय</span><strong id="pSunrise">--:--</strong></li>
+              <li><span>सूर्यास्त</span><strong id="pSunset">--:--</strong></li>
+              <li><span>राहु काल</span><strong id="pRahu" class="highlight">--:--</strong></li>
+              <li><span>अभिजीत मुहूर्त</span><strong id="pAbhijit">--:--</strong></li>
+              <li><span>चंद्र राशि</span><strong id="pMoon">--</strong></li>
             </ul>
             <a class="cta-small" href="panchang.html">पूरा पंचांग देखें →</a>
-            <div style="margin-top:12px; font-family:Manrope; font-size:11px; color:#8b9bb5;">API Key free hai - api.moon-bot.cc se le lo</div>
+            <div style="margin-top:14px; font-size:0.7rem; color:#6b7a90;">Free API Key: api.moon-bot.cc पर जाकर ले सकते हैं</div>
           </div>
         </div>
       </div>
@@ -150,7 +107,7 @@
       <div class="container">
         <div class="section-heading"><span class="section-label">Our Services</span><h2>अपने सवाल के अनुसार सही guidance चुनें</h2><p>General prediction के बजाय एक focused question और आपकी पूरी situation पर ध्यान दिया जाता है।</p></div>
         <div class="services-grid">
-          <article class="service-card service-card-large"><span class="service-number">01</span><div class="service-icon">कुं</div><h3>Personal Kundli Reading</h3><p>आपकी birth chart के प्रमुख patterns, strengths, pressure points और आगे के focus areas की reading।</p><a href="consultation.html">Consultation देखें →</a></article>
+          <article class="service-card"><span class="service-number">01</span><div class="service-icon">कुं</div><h3>Personal Kundli Reading</h3><p>आपकी birth chart के प्रमुख patterns, strengths, pressure points और आगे के focus areas की reading।</p><a href="consultation.html">Consultation देखें →</a></article>
           <article class="service-card"><span class="service-number">02</span><div class="service-icon">वि</div><h3>Marriage & Compatibility</h3><p>Compatibility, relationship patterns और सही timing पर balanced guidance।</p><a href="consultation.html">Details देखें →</a></article>
           <article class="service-card"><span class="service-number">03</span><div class="service-icon">का</div><h3>Career & Business</h3><p>Career growth, business direction, partnership और decision timing पर focused consultation।</p><a href="consultation.html">Details देखें →</a></article>
           <article class="service-card"><span class="service-number">04</span><div class="service-icon">द</div><h3>Dasha & Transit Review</h3><p>वर्तमान दशा और ग्रह गोचर के practical effects को simple language में समझें।</p><a href="consultation.html">Details देखें →</a></article>
@@ -200,38 +157,15 @@
       </div>
     </section>
 
-    <section class="consultation-cta">
-      <div class="container consultation-cta-card">
-        <div><span>START WITH ONE QUESTION</span><h2>Clarity की शुरुआत एक सही सवाल से होती है।</h2><p>अपना main concern भेजें और suitable consultation option जानें।</p></div>
-        <a class="primary-button" href="consultation.html">Consultation Request शुरू करें</a>
-      </div>
-    </section>
+    <section class="consultation-cta"><div class="container consultation-cta-card"><div><span>START WITH ONE QUESTION</span><h2>Clarity की शुरुआत एक सही सवाल से होती है।</h2><p>अपना main concern भेजें और suitable consultation option जानें।</p></div><a class="primary-button" href="consultation.html">Consultation Request शुरू करें</a></div></section>
 
-    <section class="section faq-section">
-      <div class="container faq-grid">
-        <div class="faq-heading"><span class="section-label">Frequently Asked Questions</span><h2>Booking से पहले जरूरी बातें</h2><p>Simple answers, ताकि consultation को लेकर कोई confusion न रहे।</p></div>
-        <div class="faq-list">
-          <details open><summary>Consultation के लिए क्या details चाहिए?</summary><p>Date of birth, accurate birth time, birth place और एक clear question चाहिए।</p></details>
-          <details><summary>क्या online consultation available है?</summary><p>हाँ। Timing और joining details booking confirmation के साथ share की जाएँगी।</p></details>
-          <details><summary>क्या किसी result की guarantee दी जाती है?</summary><p>नहीं। Astrology guidance और perspective देती है। Final outcome आपके decisions और circumstances पर भी निर्भर करता है।</p></details>
-          <details><summary>Fee और session duration कितनी है?</summary><p>Current fee और duration consultation type के अनुसार request review होने के बाद confirm की जाएगी।</p></details>
-          <details><summary>मेरी information confidential रहेगी?</summary><p>Birth details और consultation discussion को confidential रखा जाता है।</p></details>
-        </div>
-      </div>
-    </section>
+    <section class="section faq-section"><div class="container faq-grid"><div class="faq-heading"><span class="section-label">Frequently Asked Questions</span><h2>Booking से पहले जरूरी बातें</h2><p>Simple answers, ताकि consultation को लेकर कोई confusion न रहे।</p></div><div class="faq-list"><details open><summary>Consultation के लिए क्या details चाहिए?</summary><p>Date of birth, accurate birth time, birth place और एक clear question चाहिए।</p></details><details><summary>क्या online consultation available है?</summary><p>हाँ। Timing और joining details booking confirmation के साथ share की जाएँगी।</p></details><details><summary>क्या किसी result की guarantee दी जाती है?</summary><p>नहीं। Astrology guidance और perspective देती है। Final outcome आपके decisions और circumstances पर भी निर्भर करता है।</p></details><details><summary>Fee और session duration कितनी है?</summary><p>Current fee और duration consultation type के अनुसार request review होने के बाद confirm की जाएगी।</p></details><details><summary>मेरी information confidential रहेगी?</summary><p>Birth details और consultation discussion को confidential रखा जाता है।</p></details></div></div></section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div class="footer-brand"><a href="index.html" class="brand"><div class="brand-symbol"><span>ॐ</span></div><div class="brand-text"><strong>आचार्य पंडित संजय जी</strong><small>Vedic Astrology · Jaipur</small></div></a><p>Personal Vedic guidance for clearer and more informed life decisions.</p></div>
-      <div class="footer-links"><h3>Quick Links</h3><a href="index.html">Home</a><a href="consultation.html">Consultation</a><a href="reports.html">Reports</a><a href="about.html">About Us</a><a href="contact.html">Contact Us</a></div>
-      <div class="footer-links"><h3>Astrology Tools</h3><a href="kundli-calculator.html">Kundli Calculator</a><a href="kundli-matching.html">Kundli Matching</a><a href="mangal-dosha.html">Mangal Dosha</a><a href="panchang.html">Daily Panchang</a></div>
-      <div class="footer-note"><h3>Responsible Astrology</h3><p>Astrology guidance medical, legal या financial professional advice का substitute नहीं है।</p></div>
-    </div>
-    <div class="container footer-bottom"><p>© <span id="currentYear"></span> Acharya Pandit Sanjay Ji. All rights reserved.</p><p>Designed for clarity, trust and privacy.</p></div>
-  </footer>
+  <footer class="site-footer"><div class="container footer-grid"><div class="footer-brand"><a href="index.html" class="brand"><div class="brand-symbol"><span>ॐ</span></div><div class="brand-text"><strong>आचार्य पंडित संजय जी</strong><small>Vedic Astrology · Jaipur</small></div></a><p>Personal Vedic guidance for clearer and more informed life decisions.</p></div><div class="footer-links"><h3>Quick Links</h3><a href="index.html">Home</a><a href="consultation.html">Consultation</a><a href="reports.html">Reports</a><a href="about.html">About Us</a><a href="contact.html">Contact Us</a></div><div class="footer-links"><h3>Astrology Tools</h3><a href="kundli-calculator.html">Kundli Calculator</a><a href="kundli-matching.html">Kundli Matching</a><a href="mangal-dosha.html">Mangal Dosha</a><a href="panchang.html">Daily Panchang</a></div><div class="footer-note"><h3>Responsible Astrology</h3><p>Astrology guidance medical, legal या financial professional advice का substitute नहीं है।</p></div></div><div class="container footer-bottom"><p>© <span id="currentYear"></span> Acharya Pandit Sanjay Ji. All rights reserved.</p><p>Designed for clarity, trust and privacy.</p></div></footer>
 
   <script>
+    // Mobile menu
     const menuButton = document.getElementById("menuButton");
     const mobileMenu = document.getElementById("mobileMenu");
     menuButton.addEventListener("click", function () {
@@ -257,82 +191,73 @@
         document.body.classList.remove("menu-open");
       }
     });
-    const kundliForm = document.getElementById("kundliForm");
-    const kundliMessage = document.getElementById("kundliMessage");
-    kundliForm.addEventListener("submit", function (event) {
-      event.preventDefault();
-      if (!kundliForm.checkValidity()) { kundliForm.reportValidity(); return; }
-      const fullName = document.getElementById("fullName").value;
-      const mainConcern = document.getElementById("mainConcern").value;
-      kundliMessage.hidden = false;
-      kundliMessage.innerHTML = "<strong>" + fullName + "</strong>, आपकी details तैयार हैं। Selected concern: <strong>" + mainConcern + "</strong>. अगले step में इसे consultation booking से connect करेंगे.";
-    });
-    document.getElementById("currentYear").textContent = new Date().getFullYear();
 
-    // --- LIVE PANCHANG INTEGRATION - public-apis/public-apis ---
-    // Yaha apni free API key daalo: https://api.moon-bot.cc se milegi
-    const PANCHANG_API_KEY = "FREE_DEMO_KEY_REPLACE_ME"; 
-    const PANCHANG_API_URL = "https://api.moon-bot.cc/v1/panchang";
-
-    async function fetchLivePanchang() {
-      const today = new Date();
-      const dateStr = today.toISOString().split('T')[0]; // YYYY-MM-DD
-      document.getElementById('pDateDisplay').textContent = today.toLocaleDateString('hi-IN', { weekday:'long', day:'numeric', month:'long', year:'numeric' });
-
-      // Demo fallback data agar API key nahi hai toh - taaki design dikhe
-      const fallbackData = {
-        tithi: "शुक्ल पक्ष एकादशी",
-        nakshatra: "श्रवण",
-        yoga: "शोभन",
-        karana: "वणिज",
-        sunrise: "06:12 AM",
-        sunset: "06:45 PM",
-        rahu_kaal: "10:30 - 12:00",
-        abhijit: "11:54 - 12:42",
-        moon: "मकर"
-      };
-
-      try {
-        // Agar key replace nahi ki hai toh fallback dikhao
-        if(PANCHANG_API_KEY === "FREE_DEMO_KEY_REPLACE_ME"){
-          throw new Error("Add API Key");
-        }
-
-        const res = await fetch(`${PANCHANG_API_URL}?date=${dateStr}&latitude=26.9124&longitude=75.7873&timezone=Asia/Kolkata`, {
-          headers: { "X-API-Key": PANCHANG_API_KEY, "Content-Type": "application/json" }
-        });
-
-        if(!res.ok) throw new Error("API error");
-        const data = await res.json();
-
-        // API response structure ke hisab se mapping - api.moon-bot.cc docs se
-        document.getElementById('pTithi').textContent = data.tithi?.name || data.tithi || fallbackData.tithi;
-        document.getElementById('pNakshatra').textContent = data.nakshatra?.name || data.nakshatra || fallbackData.nakshatra;
-        document.getElementById('pYoga').textContent = data.yoga?.name || data.yoga || fallbackData.yoga;
-        document.getElementById('pKarana').textContent = data.karana?.name || data.karana || fallbackData.karana;
-        document.getElementById('pSunrise').textContent = data.sunrise || fallbackData.sunrise;
-        document.getElementById('pSunset').textContent = data.sunset || fallbackData.sunset;
-        document.getElementById('pRahu').textContent = data.rahu_kaal || data.rahukaal || fallbackData.rahu_kaal;
-        document.getElementById('pAbhijit').textContent = data.abhijit_muhurta || fallbackData.abhijit;
-        document.getElementById('pMoon').textContent = data.moon_sign || data.rashi || fallbackData.moon;
-
-        localStorage.setItem('panchang_cache', JSON.stringify({date: dateStr, data: data}));
-
-      } catch(e){
-        console.log("Panchang API fallback use ho raha hai:", e.message);
-        // Fallback data dikhao taaki site khali na lage
-        document.getElementById('pTithi').textContent = fallbackData.tithi;
-        document.getElementById('pNakshatra').textContent = fallbackData.nakshatra;
-        document.getElementById('pYoga').textContent = fallbackData.yoga;
-        document.getElementById('pKarana').textContent = fallbackData.karana;
-        document.getElementById('pSunrise').textContent = fallbackData.sunrise;
-        document.getElementById('pSunset').textContent = fallbackData.sunset;
-        document.getElementById('pRahu').textContent = fallbackData.rahu_kaal;
-        document.getElementById('pAbhijit').textContent = fallbackData.abhijit;
-        document.getElementById('pMoon').textContent = fallbackData.moon;
-      }
+    // Free Calculators Dropdown - Screenshot Exact
+    const calcBtn = document.getElementById('calcDropdownBtn');
+    const calcWrapper = document.getElementById('calcWrapper');
+    if(calcBtn){
+      calcBtn.addEventListener('click', function(e){
+        e.stopPropagation();
+        const isOpen = calcWrapper.classList.contains('open');
+        calcWrapper.classList.toggle('open');
+        calcBtn.setAttribute('aria-expanded', String(!isOpen));
+      });
+      document.addEventListener('click', function(){
+        calcWrapper.classList.remove('open');
+        calcBtn.setAttribute('aria-expanded', 'false');
+      });
     }
 
+    // Kundli Form
+    const kundliForm = document.getElementById("kundliForm");
+    const kundliMessage = document.getElementById("kundliMessage");
+    if(kundliForm){
+      kundliForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        if (!kundliForm.checkValidity()) { kundliForm.reportValidity(); return; }
+        const fullName = document.getElementById("fullName").value;
+        const mainConcern = document.getElementById("mainConcern").value;
+        kundliMessage.hidden = false;
+        kundliMessage.innerHTML = "<strong>" + fullName + "</strong>, आपकी details तैयार हैं। Selected concern: <strong>" + mainConcern + "</strong>. अगले step में इसे consultation booking से connect करेंगे.";
+      });
+    }
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+    // LIVE PANCHANG - public-apis/public-apis -> PanchangaAPI
+    const PANCHANG_API_KEY = "FREE_DEMO_KEY_REPLACE_ME";
+    async function fetchLivePanchang() {
+      const today = new Date();
+      document.getElementById('pDateDisplay').textContent = today.toLocaleDateString('hi-IN', { weekday:'long', day:'numeric', month:'long', year:'numeric' });
+      const fallback = { tithi:"शुक्ल पक्ष एकादशी", nakshatra:"श्रवण", yoga:"शोभन", karana:"वणिज", sunrise:"06:12 AM", sunset:"06:45 PM", rahu_kaal:"10:30 - 12:00", abhijit:"11:54 - 12:42", moon:"मकर" };
+      try {
+        if(PANCHANG_API_KEY === "FREE_DEMO_KEY_REPLACE_ME") throw new Error("demo");
+        const dateStr = today.toISOString().split('T')[0];
+        const res = await fetch(`https://api.moon-bot.cc/v1/panchang?date=${dateStr}&latitude=26.9124&longitude=75.7873&timezone=Asia/Kolkata`, { headers: { "X-API-Key": PANCHANG_API_KEY } });
+        if(!res.ok) throw new Error("api error");
+        const data = await res.json();
+        document.getElementById('pTithi').textContent = data.tithi?.name || data.tithi || fallback.tithi;
+        document.getElementById('pNakshatra').textContent = data.nakshatra?.name || data.nakshatra || fallback.nakshatra;
+        document.getElementById('pYoga').textContent = data.yoga?.name || data.yoga || fallback.yoga;
+        document.getElementById('pKarana').textContent = data.karana?.name || data.karana || fallback.karana;
+        document.getElementById('pSunrise').textContent = data.sunrise || fallback.sunrise;
+        document.getElementById('pSunset').textContent = data.sunset || fallback.sunset;
+        document.getElementById('pRahu').textContent = data.rahu_kaal || data.rahukaal || fallback.rahu_kaal;
+        document.getElementById('pAbhijit').textContent = data.abhijit_muhurta || fallback.abhijit;
+        document.getElementById('pMoon').textContent = data.moon_sign || data.rashi || fallback.moon;
+        document.querySelectorAll('.panchang-item strong').forEach(el=>el.classList.remove('loading'));
+      } catch(e){
+        document.getElementById('pTithi').textContent = fallback.tithi;
+        document.getElementById('pNakshatra').textContent = fallback.nakshatra;
+        document.getElementById('pYoga').textContent = fallback.yoga;
+        document.getElementById('pKarana').textContent = fallback.karana;
+        document.getElementById('pSunrise').textContent = fallback.sunrise;
+        document.getElementById('pSunset').textContent = fallback.sunset;
+        document.getElementById('pRahu').textContent = fallback.rahu_kaal;
+        document.getElementById('pAbhijit').textContent = fallback.abhijit;
+        document.getElementById('pMoon').textContent = fallback.moon;
+        document.querySelectorAll('.panchang-item strong').forEach(el=>el.classList.remove('loading'));
+      }
+    }
     fetchLivePanchang();
   </script>
 </body>
